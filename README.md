@@ -307,6 +307,7 @@ cd gitlab-infra
 docker compose up -d
 docker logs -f gitlab-ce-rjrst-15-04-2026
 ```
+
 <img width="975" height="465" alt="image" src="https://github.com/user-attachments/assets/c3931490-76b2-4715-b9b1-e20bb4323877" />
 
 #### 1.3 Récupération du mot de passe root initial
@@ -315,7 +316,7 @@ docker logs -f gitlab-ce-rjrst-15-04-2026
 docker exec gitlab-ce-rjrst-15-04-2026 cat /etc/gitlab/initial_root_password
 ```
 
-**[IMAGE 2 — Commande pour récupérer le mot de passe root]**
+<img width="975" height="242" alt="image" src="https://github.com/user-attachments/assets/e741c9ea-80bf-4ad8-8bc4-0212947b4995" />
 
 #### 1.4 Configuration des registries Docker insecure
 
@@ -336,7 +337,7 @@ colima ssh --profile remote-server -- sudo systemctl restart docker
 
 Depuis l'interface GitLab, nouveau projet blank nommé `ecommerce-rjrst-15-04-2026`.
 
-**[IMAGE 3 — Création du repo GitLab avec nos initiales RJRST]**
+<img width="975" height="417" alt="image" src="https://github.com/user-attachments/assets/72cba2ba-889a-4246-8a46-4c12fca89f85" />
 
 #### 1.6 Installation et enregistrement des trois runners
 
@@ -346,13 +347,13 @@ Un runner local est déjà dans le docker-compose, deux runners distants sont la
 - Socket Docker monté pour permettre les commandes `docker` dans les jobs
 - Tags appropriés (`local`, `staging`, `production`)
 
-**[IMAGE 4 — Les trois runners visibles dans l'UI GitLab]**
+<img width="975" height="402" alt="image" src="https://github.com/user-attachments/assets/059b6c22-5d8f-4eeb-96ce-235600c2b5dc" />
 
 #### 1.7 Création du repo GitHub miroir
 
 Un repo GitHub est créé en parallèle pour que l'enseignant puisse consulter le code. Les deux remotes (GitHub en origin, GitLab) sont configurés sur le dépôt local.
 
-**[IMAGE 5 — Création du repo GitHub]**
+<img width="975" height="446" alt="image" src="https://github.com/user-attachments/assets/9359fddc-ba96-4e6f-a8dc-6c4f0e404000" />
 
 ### Phase 2 — Sécurité : compte utilisateur non-admin
 
@@ -362,19 +363,19 @@ Le projet ne doit pas être manipulé avec le compte root. Un utilisateur `rateb
 
 Via Admin → Users → New : username `rateb`, email `rateb@rjrst.local`.
 
-**[IMAGE 6 — Création du compte utilisateur]**
+<img width="975" height="496" alt="image" src="https://github.com/user-attachments/assets/6da482ef-00a0-41d0-9c60-b0139228fe79" />
 
 #### 2.2 Configuration du mot de passe
 
-**[IMAGE 7 — Configuration du mot de passe de l'utilisateur]**
+<img width="975" height="204" alt="image" src="https://github.com/user-attachments/assets/c57f8853-2a38-495a-a6ed-2fa37d15f7cb" />
 
 #### 2.3 Ajout au projet avec le rôle Maintainer
 
 Project → Members → Invite members.
 
-**[IMAGE 8 — Donner les droits au projet]**
+<img width="975" height="417" alt="image" src="https://github.com/user-attachments/assets/3b4e8b2f-eac5-4107-83e8-0a55f1410386" />
 
-**[IMAGE 9 — Le repo créé et compte user avec accès]**
+<img width="975" height="427" alt="image" src="https://github.com/user-attachments/assets/b880a051-5020-484d-8b38-a8751bab3b4e" />
 
 #### 2.4 Configuration SSH pour l'utilisateur
 
@@ -385,9 +386,9 @@ ssh-keygen -t ed25519 -C "rateb-rjrst@gitlab.local" -f ~/.ssh/id_ed25519_rateb -
 cat ~/.ssh/id_ed25519_rateb.pub
 ```
 
-**[IMAGE 10 — Génération de la clé SSH côté terminal]**
+<img width="975" height="123" alt="image" src="https://github.com/user-attachments/assets/14d923f8-1272-4f54-afd3-8795d52c11de" />
 
-**[IMAGE 11 — Ajout de la clé SSH dans l'interface GitLab]**
+<img width="975" height="446" alt="image" src="https://github.com/user-attachments/assets/56b5a773-d8cb-4653-bff2-5a4fb535f1d4" />
 
 Configuration SSH côté Mac (`~/.ssh/config`) pour simplifier les commandes :
 
@@ -405,7 +406,7 @@ Host gitlab-rjrst
 ssh -T gitlab-rjrst
 ```
 
-**[IMAGE 12 — Test de la connexion SSH réussi]**
+<img width="975" height="325" alt="image" src="https://github.com/user-attachments/assets/a419f27a-5b84-4c3b-8328-396e45f9ca3f" />
 
 #### 2.6 Premier push sur les deux remotes
 
@@ -415,9 +416,11 @@ git push gitlab main
 git push origin main
 ```
 
-**[IMAGE 13 — Push sur GitLab]**
+<img width="975" height="400" alt="image" src="https://github.com/user-attachments/assets/02e0748d-1272-48c2-b095-36b94dbf9579" />
 
-**[IMAGE 14 — Push sur GitHub]**
+<img width="973" height="592" alt="image" src="https://github.com/user-attachments/assets/f88f10cf-51fb-4e10-91f0-a9beb865fdec" />
+
+<img width="923" height="255" alt="image" src="https://github.com/user-attachments/assets/772abfca-29d7-4d94-bcd4-11ba52982e03" />
 
 ### Phase 3 — Structure du projet et application Django
 
@@ -445,7 +448,7 @@ projet-devops-rjrst/
 └── README.md
 ```
 
-**[IMAGE 15 — Structure du dossier avec app et gitlab-infra]**
+<img width="477" height="181" alt="image" src="https://github.com/user-attachments/assets/a82a1795-0640-4aee-804e-3ce0362105eb" />
 
 #### 3.2 Application Django retenue
 
@@ -478,23 +481,23 @@ Le fichier `.gitlab-ci.yml` définit huit stages exécutés en séquence. Les st
 
 Dès le premier push sur `main`, le pipeline démarre automatiquement.
 
-**[IMAGE 16 — Pipeline qui se déclenche avec le premier job]**
+<img width="975" height="356" alt="image" src="https://github.com/user-attachments/assets/d9d6ba80-1c9c-40fd-bc6c-b329085c14c5" />
 
-**[IMAGE 17 — Tous les jobs passent sauf security_scan en warning, les 3 derniers en manuel]**
+<img width="975" height="471" alt="image" src="https://github.com/user-attachments/assets/523f3bf8-0e40-40ff-8477-c31712fd4372" />
 
 #### 4.2 Stage 1 et 2 — build_dev et build_prod
 
 Le runner local exécute `docker login` vers le registry GitLab, puis `docker build` avec les deux Dockerfiles. Les images sont taguées et pushées : `:dev`, `:prod`, `:latest`, `:SHA_COMMIT`. Le tag de commit court permet un rollback granulaire vers n'importe quelle version historique.
 
-**[IMAGE 18 — Job deploy_staging réussi]**
+<img width="975" height="425" alt="image" src="https://github.com/user-attachments/assets/ab628467-03ce-4def-a382-a60b37f98953" />
 
-**[IMAGE 19 — Job deploy_production réussi]**
+<img width="975" height="423" alt="image" src="https://github.com/user-attachments/assets/d1bdc956-9cb3-4f9a-8f15-0f3e7d58f2e0" />
 
 #### 4.3 Stage 3 — test
 
 Ce stage pull l'image `:prod` depuis le registry et lance `python manage.py check` pour valider la configuration Django et les imports de tous les modules.
 
-**[IMAGE 20 — Job test réussi]**
+<img width="975" height="417" alt="image" src="https://github.com/user-attachments/assets/b9a09c9e-351d-4701-9b1f-60c46a672dc0" />
 
 #### 4.4 Stage 4 — security_scan (Trivy)
 
@@ -502,15 +505,15 @@ Trivy analyse l'image `:prod` et cherche les CVE dans les packages Alpine et les
 
 **Premier scan** : 15 vulnérabilités Django 4.2.9 (2 CRITICAL, 13 HIGH) : SQL injection, déni de service, path traversal...
 
-**[IMAGE 21 — Scan avec les failles critiques détectées]**
+<img width="975" height="329" alt="image" src="https://github.com/user-attachments/assets/6e80c076-3f05-4a7d-9d6b-02c03eadf26b" />
 
 Correction : mise à jour vers Django 4.2.30 (version LTS patchée).
 
-**[IMAGE 22 — Code requirements.txt mis à jour]**
+<img width="975" height="469" alt="image" src="https://github.com/user-attachments/assets/f7843301-27c1-4c35-b22e-0ce29976f621" />
 
 **Deuxième scan** : 0 vulnérabilité détectée.
 
-**[IMAGE 23 — Nouveau scan avec 0 faille]**
+<img width="975" height="394" alt="image" src="https://github.com/user-attachments/assets/2511a9e2-e234-457b-bc59-75d6b3cdbe03" />
 
 Cette capacité à **détecter puis corriger** est exactement ce que le client demandait.
 
@@ -518,7 +521,7 @@ Cette capacité à **détecter puis corriger** est exactement ce que le client d
 
 Le runner staging (sur la VM remote) pull l'image `:prod` depuis le registry, crée un réseau Docker dédié, lance PostgreSQL (si inexistant) puis déploie l'application avec les variables d'environnement adaptées. L'app est accessible sur `http://192.168.64.2:8001`.
 
-**[IMAGE 24 — Job deploy_staging en cours de passage]**
+<img width="975" height="425" alt="image" src="https://github.com/user-attachments/assets/3fd2ac74-793f-4958-83fc-6ab805753414" />
 
 Test avec curl :
 ```bash
@@ -526,17 +529,19 @@ curl -s -o /dev/null -w "%{http_code}" http://192.168.64.2:8001/
 # Retourne 200 → déploiement validé
 ```
 
-**[IMAGE 25 — Test curl avec 200 OK]**
+<img width="975" height="69" alt="image" src="https://github.com/user-attachments/assets/e8e8005b-3172-4ea0-ab5e-a9da8e1ee569" />
 
-**[IMAGE 26 — Navigation via le navigateur, page accessible]**
+<img width="975" height="473" alt="image" src="https://github.com/user-attachments/assets/79741ac7-8b7b-4a76-a6e2-d921379b8073" />
+
+<img width="975" height="423" alt="image" src="https://github.com/user-attachments/assets/7ffe012b-ab8e-4db7-8c5e-90a084f2f427" />
 
 #### 4.6 Stage 6 — deploy_production (manuel)
 
 Ce stage est volontairement manuel pour que l'équipe valide le staging avant de toucher à la prod. Avant chaque déploiement, le pipeline tague l'image actuellement en prod avec `:previous` et la pousse au registry — c'est la clé du mécanisme de rollback.
 
-**[IMAGE 27 — Lancement manuel de deploy_production]**
+<img width="975" height="127" alt="image" src="https://github.com/user-attachments/assets/68da4b55-4e07-4a8b-acd6-04690534c8fa" />
 
-**[IMAGE 28 — Job qui passe au vert]**
+<img width="975" height="181" alt="image" src="https://github.com/user-attachments/assets/667ace06-255b-4980-a288-e525ddc838b8" />
 
 Test avec curl sur le port 8000 :
 ```bash
@@ -544,35 +549,35 @@ curl -s -o /dev/null -w "%{http_code}" http://192.168.64.2:8000/
 # Retourne 200 → production en ligne
 ```
 
-**[IMAGE 29 — Test curl avec 200 OK sur port 8000]**
+<img width="975" height="65" alt="image" src="https://github.com/user-attachments/assets/b222c319-f533-4f01-80cf-9d540d49b03c" />
 
-**[IMAGE 30 — Navigation navigateur sur la prod]**
+<img width="975" height="483" alt="image" src="https://github.com/user-attachments/assets/4a429ea1-1c5a-48f4-a342-218c81467118" />
 
 #### 4.7 Stage 7 — backup_db (manuel)
 
 Ce stage exécute `python manage.py dbbackup` dans le conteneur de production. Le dump PostgreSQL compressé est stocké dans le volume persistant `app-prod-backups`, survivant à toute destruction du conteneur.
 
-**[IMAGE 31 — Lancement manuel de backup_db]**
+<img width="975" height="123" alt="image" src="https://github.com/user-attachments/assets/da18c261-3991-404c-ae83-69967e8a5be1" />
 
-**[IMAGE 32 — Job backup_db réussi]**
+<img width="975" height="421" alt="image" src="https://github.com/user-attachments/assets/6aa7cd8c-bda3-446b-ba03-ce24f14d7e67" />
 
 #### 4.8 Stage 8 — rollback (manuel)
 
 Ce stage pull l'image `:previous` depuis le registry et redéploie l'application en moins d'une minute. Nous avons testé deux rollbacks consécutifs avec succès, prouvant que le mécanisme est fiable.
 
-**[IMAGE 33 — Lancement du rollback]**
+<img width="975" height="135" alt="image" src="https://github.com/user-attachments/assets/d2558538-1320-494f-9be6-c52f59646870" />
 
-**[IMAGE 34 — Job rollback réussi]**
+<img width="975" height="425" alt="image" src="https://github.com/user-attachments/assets/9415e0fe-dc97-4e28-b5b2-903ff95d0545" />
 
 #### 4.9 Vue d'ensemble du pipeline complet
 
-**[IMAGE 35 — Pipeline complet entièrement en vert]**
+<img width="975" height="125" alt="image" src="https://github.com/user-attachments/assets/899c72b8-79b8-46a6-9f76-97d9dcef6d82" />
 
 ### Phase 5 — Environnements GitLab
 
 GitLab propose nativement le concept d'**environnements** pour tracer quelle version est déployée où. Nos deux environnements `staging` et `production` sont visibles dans Deploy → Environments avec l'historique des déploiements, les liens d'accès direct et le commit associé.
 
-**[IMAGE 36 — Les deux environnements staging et production visibles]**
+<img width="975" height="238" alt="image" src="https://github.com/user-attachments/assets/2c7283b0-cf4d-4c6d-8cf7-5af63e963a5c" />
 
 Cette vue est précieuse pour l'équipe ops : d'un coup d'œil on sait quelle version est en production, depuis combien de temps, et qui l'a déployée.
 
