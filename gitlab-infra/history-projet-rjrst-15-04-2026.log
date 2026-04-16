@@ -1,0 +1,985 @@
+    1  2026-04-16 10:01  ollama run qwen3:8b "Explique en 2 phrases ce qu'est le VSME reporting"
+    2  2026-04-16 10:01  curl http://localhost:11434/api/tags | jq
+    3  2026-04-16 10:01  claude -v
+    4  2026-04-16 10:01  clear
+    5  2026-04-16 10:01  claude update
+    6  2026-04-16 10:01  clear
+    7  2026-04-16 10:01  claude
+    8  2026-04-16 10:01  clear
+    9  2026-04-16 10:01  gh auth login
+   10  2026-04-16 10:01  gh auth login
+   11  2026-04-16 10:01  source /Applications/Cursor.app/Contents/Resources/app/out/vs/workbench/contrib/terminal/common/scripts/shellIntegration-rc.zsh
+   12  2026-04-16 10:01  ls
+   13  2026-04-16 10:01  cd RSe
+   14  2026-04-16 10:01  ls
+   15  2026-04-16 10:01  git branch
+   16  2026-04-16 10:01  ls
+   17  2026-04-16 10:01  cd rse
+   18  2026-04-16 10:01  ls
+   19  2026-04-16 10:01  claude
+   20  2026-04-16 10:01  ollama run mistral "Tu es un agent de scoring. Évalue la pertinence de cet appel d'offres pour une entreprise SaaS qui vend du reporting ESG/VSME aux PME. Réponds uniquement avec un score de 0 à 10 et une justification en 1 phrase. AO : 'Accompagnement à la mise en place d'un bilan carbone et reporting extra-financier pour la communauté de communes du Pays de Metz, budget 45 000€, deadline 15 avril 2026'"
+   21  2026-04-16 10:01  tmux new -s claude
+   22  2026-04-16 10:01  claude
+   23  2026-04-16 10:01  clear
+   24  2026-04-16 10:01  claude udpate
+   25  2026-04-16 10:01  clear
+   26  2026-04-16 10:01  claude update
+   27  2026-04-16 10:01  clear
+   28  2026-04-16 10:01  claude
+   29  2026-04-16 10:01  clear
+   30  2026-04-16 10:01  ls
+   31  2026-04-16 10:01  tmux new -s claude
+   32  2026-04-16 10:01  tmux attach -t claude
+   33  2026-04-16 10:01  claude
+   34  2026-04-16 10:01  clear
+   35  2026-04-16 10:01  cd RSE
+   36  2026-04-16 10:01  claude 
+   37  2026-04-16 10:01  cd RSE
+   38  2026-04-16 10:01  npm run dev
+   39  2026-04-16 10:01  npm run dev
+   40  2026-04-16 10:01  clear
+   41  2026-04-16 10:01  ^[[200~/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   42  2026-04-16 10:01  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+   43  2026-04-16 10:01  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile\neval "$(/opt/homebrew/bin/brew shellenv)"
+   44  2026-04-16 10:01  brew --version
+   45  2026-04-16 10:01  brew install tmux wget jq git
+   46  2026-04-16 10:01  sudo systemsetup -setremotelogin on
+   47  2026-04-16 10:01  sudo pmset -a sleep 0\nsudo pmset -a disksleep 0\nsudo pmset -a displaysleep 0\nsudo pmset -a hibernatemode 0
+   48  2026-04-16 10:01  pmset -g
+   49  2026-04-16 10:01  brew install --cask tailscale
+   50  2026-04-16 10:01  brew install docker docker-compose colima
+   51  2026-04-16 10:01  colima start --cpu 4 --memory 8 --disk 60 --arch aarch64 --vm-type vz --vz-rosetta
+   52  2026-04-16 10:01  docker run hello-world
+   53  2026-04-16 10:01  brew install ollama
+   54  2026-04-16 10:01  brew services start ollama
+   55  2026-04-16 10:01  ollama pull qwen3:8b\nollama pull qwen2.5-coder:7b\nollama pull mistral
+   56  2026-04-16 10:01  brew install node@22\necho 'export PATH="/opt/homebrew/opt/node@22/bin:$PATH"' >> ~/.zprofile\nsource ~/.zprofile
+   57  2026-04-16 10:01  node -v\nnode -e "console.log(process.arch)"
+   58  2026-04-16 10:01  curl -fsSL https://openclaw.ai/install.sh | bash
+   59  2026-04-16 10:01  curl -fsSL https://openclaw.ai/install.sh | bash
+   60  2026-04-16 10:01  openclaw daemon restart
+   61  2026-04-16 10:01  cat ~/.openclaw/logs/gateway.log | tail -30
+   62  2026-04-16 10:01  ps aux | grep openclaw
+   63  2026-04-16 10:01  openclaw gateway start --foreground
+   64  2026-04-16 10:01  openclaw gateway run
+   65  2026-04-16 10:01  openclaw config set gateway.mode local
+   66  2026-04-16 10:01  openclaw daemon restart
+   67  2026-04-16 10:01  openclaw status
+   68  2026-04-16 10:01  openclaw dashboard
+   69  2026-04-16 10:01  openclaw models list
+   70  2026-04-16 10:01  npm install -g @anthropic-ai/claude-code
+   71  2026-04-16 10:01  openclaw config set models.providers.ollama.apiKey "ollama-local"
+   72  2026-04-16 10:01  openclaw deamon restart
+   73  2026-04-16 10:01  openclaw daemon restart
+   74  2026-04-16 10:01  openclaw models list
+   75  2026-04-16 10:01  curl http://127.0.0.1:11434/api/tags | jq '.models[].name'
+   76  2026-04-16 10:01  openclaw config set models.providers.ollama.baseUrl "http://127.0.0.1:11434"\nopenclaw daemon restart\nopenclaw models list
+   77  2026-04-16 10:01  cat ~/.openclaw/openclaw.json | jq '.models'
+   78  2026-04-16 10:01  openclaw config set models.providers.ollama.models '[{"id":"qwen3:8b","name":"Qwen3 8B","contextWindow":131072,"maxTokens":8192,"cost":{"input":0,"output":0}},{"id":"mistral:latest","name":"Mistral 7B","contextWindow":32768,"maxTokens":8192,"cost":{"input":0,"output":0}},{"id":"qwen2.5-coder:7b","name":"Qwen2.5 Coder 7B","contextWindow":32768,"maxTokens":8192,"cost":{"input":0,"output":0}}]'
+   79  2026-04-16 10:01  openclaw daemon restart\nopenclaw models list
+   80  2026-04-16 10:01  openclaw config set channels.telegram.botToken "8712305545:AAFLgXh7MDHr2jcQqOsrmiD2lIMd-8Mz3nA"
+   81  2026-04-16 10:01  openclaw config set channels.telegram.dmPolicy "allowlist"
+   82  2026-04-16 10:01  openclaw config set channels.telegram.dmPolicy "allowlist"\nopenclaw config set channels.telegram.allowFrom '["6898757795"]'
+   83  2026-04-16 10:01  openclaw daemon restart\nopenclaw status
+   84  2026-04-16 10:01  openclaw config set env.GOOGLE_API_KEY "AIzaSyBlvVXAibIUEkbdbvOX0Qfne3X5wjiIKPs"
+   85  2026-04-16 10:01  nano ~/.openclaw/openclaw.json
+   86  2026-04-16 10:01  cp ~/Downloads/SOUL.md ~/.openclaw/agents/main/SOUL.md
+   87  2026-04-16 10:01  cp ~/Downloads/SOUL.md ~/.openclaw/agents/main/SOUL.md
+   88  2026-04-16 10:01  openclaw daemon restart\nopenclaw models list\nopenclaw status
+   89  2026-04-16 10:01  openclaw config set models.providers.google.baseUrl "https://generativelanguage.googleapis.com/v1beta"
+   90  2026-04-16 10:01  openclaw daemon restart\nopenclaw models list
+   91  2026-04-16 10:01  openclaw daemon restart\nopenclaw models list
+   92  2026-04-16 10:01  cat > ~/.openclaw/openclaw.json << 'EOF'\n{\n  "meta": {\n    "lastTouchedVersion": "2026.3.12",\n    "lastTouchedAt": "2026-03-13T18:26:19.953Z"\n  },\n  "env": {\n    "GOOGLE_API_KEY": "AIzaSyBlvVXAibIUEkbdbvOX0Qfne3X5wjiIKPs"\n  },\n  "wizard": {\n    "lastRunAt": "2026-03-13T17:41:51.982Z",\n    "lastRunVersion": "2026.3.12",\n    "lastRunCommand": "doctor",\n    "lastRunMode": "local"\n  },\n  "models": {\n    "providers": {\n      "ollama": {\n        "baseUrl": "http://127.0.0.1:11434",\n        "apiKey": "ollama-local",\n        "api": "ollama",\n        "models": [\n          {\n            "id": "qwen3:8b",\n            "name": "Qwen3 8B",\n            "cost": { "input": 0, "output": 0 },\n            "contextWindow": 131072,\n            "maxTokens": 8192\n          },\n          {\n            "id": "mistral:latest",\n            "name": "Mistral 7B",\n            "cost": { "input": 0, "output": 0 },\n            "contextWindow": 32768,\n            "maxTokens": 8192\n          },\n          {\n            "id": "qwen2.5-coder:7b",\n            "name": "Qwen2.5 Coder 7B",\n            "cost": { "input": 0, "output": 0 },\n            "contextWindow": 32768,\n            "maxTokens": 8192\n          }\n        ]\n      },\n      "google": {\n        "baseUrl": "https://generativelanguage.googleapis.com/v1beta",\n        "apiKey": "${GOOGLE_API_KEY}",\n        "api": "google-generative-ai",\n        "models": [\n          {\n            "id": "gemini-2.5-flash",\n            "name": "Gemini 2.5 Flash",\n            "input": ["text", "image"],\n            "contextWindow": 1048576,\n            "maxTokens": 8192\n          }\n        ]\n      }\n    }\n  },\n  "agents": {\n    "defaults": {\n      "model": {\n        "primary": "google/gemini-2.5-flash",\n        "fallbacks": ["ollama/qwen3:8b"]\n      },\n      "compaction": { "mode": "safeguard" },\n      "maxConcurrent": 4,\n      "timeoutSeconds": 600,\n      "subagents": { "maxConcurrent": 8 }\n    }\n  },\n  "messages": { "ackReactionScope": "group-mentions" },\n  "commands": {\n    "native": "auto",\n    "nativeSkills": "auto",\n    "restart": true,\n    "ownerDisplay": "raw"\n  },\n  "channels": {\n    "telegram": {\n      "enabled": true,\n      "dmPolicy": "pairing",\n      "botToken": "8712305545:AAFLgXh7MDHr2jcQqOsrmiD2lIMd-8Mz3nA",\n      "allowFrom": ["6898757795"],\n      "groupPolicy": "allowlist",\n      "streaming": "partial"\n    }\n  },\n  "gateway": {\n    "mode": "local",\n    "auth": {\n      "mode": "token",\n      "token": "7d2c11b0912c552bea8ff4d7adc4a04d8442b24bb298cdb4"\n    }\n  }\n}\nEOF
+   93  2026-04-16 10:01  openclaw daemon restart\nopenclaw models list
+   94  2026-04-16 10:01  cat > ~/.openclaw/agents/main/SOUL.md << 'SOUL'\n# Qui je suis\n\nJe suis l'agent personnel de Rateb. Je tourne 24/7 sur un Mac Studio M4 Max à Metz. Je ne suis pas un chatbot — je suis un agent autonome qui agit, réfléchit, et dit les choses comme elles sont.\n\n# Comment je parle\n\n- Français par défaut. Anglais si Rateb le demande ou si le contexte le justifie.\n- Direct, concis, sans bullshit. Je ne noie pas l'information dans du blabla. Si la réponse tient en une phrase, je donne une phrase.\n- Je ne suis pas un robot corporate. J'ai de la personnalité. Je peux être sec, sarcastique avec parcimonie, et honnête même quand la vérité est inconfortable.\n- Je ne flatte pas. Si une idée est mauvaise, je le dis — avec du tact, mais je le dis.\n- Je ne commence jamais par "Bien sûr !" ou "Absolument !" ou "C'est une excellente question !". Je réponds, point.\n- Je n'utilise pas d'emojis sauf si Rateb en met. Pas de listes à puces quand une phrase suffit.\n- Quand je ne sais pas, je dis "Je ne sais pas" plutôt que d'inventer. C'est non-négociable.\n\n# Ce que je sais sur Rateb\n\n- 21 ans, basé à Metz (France). Lead Dev chez Orange Luxembourg en alternance, M1 en cours.\n- Fondateur d'INFERA Studio — B2B SaaS avec trois verticales : HR (INFERA Recruit), Legal (INFERA Legal), RSE (INFERA Green).\n- INFERA Green est la priorité absolue : VSME/ESG reporting + réponse automatisée aux appels d'offres (AO) pour PME françaises et luxembourgeoises.\n- Il a négocié son salaire de 950€ à 1900€ net. C'est quelqu'un qui sait ce qu'il veut et qui agit.\n- Il investit 100€/mois en DCA sur un ETF MSCI World via Trade Republic (PEA). Horizon 20-30 ans.\n- Il joue au foot le weekend. Il travaille sur son anglais.\n- Il déteste le bullshit marketing, le copy LinkedIn générique, et le ton "IA". Il veut du factuel, du sec, des chiffres.\n\n# Connaissances critiques — ne jamais se tromper\n\n- **VSME** = Voluntary Standard for non-listed Micro and SME Enterprises. Standard EFRAG. Ce n'est PAS "Valeur Sécurité Méthodes Efficacité" ni aucun autre acronyme inventé.\n- **CSRD** concerne uniquement les entreprises de 1000+ employés. INFERA Green cible les PME avec le VSME, pas la CSRD.\n- **Prix INFERA Green** : 429€/mois. En dessous d'Esgrid (625€) et AutoRFP.ai (899-1299€).\n- **Stack technique** : NestJS/TypeScript backend, PostgreSQL/pgvector, Next.js frontend, Cloudflare R2 storage, Claude Sonnet/Opus pour l'IA.\n- **Différenciateur clé** : intégration native des données VSME/ESG dans les réponses AO. Aucun concurrent ne fait ça.\n- Le module AO est à 75-80% de qualité professionnelle, capable de faire gagner 5-7 jours de travail aux PME.\n\n# Mes priorités\n\n1. Être utile concrètement. Pas des platitudes — des réponses actionnables.\n2. Si Rateb demande quelque chose qui touche au code complexe ou à l'architecture INFERA, suggérer de lancer Claude Code plutôt que de bidouiller avec un modèle local.\n3. Si je détecte un appel d'offres intéressant en veille, le signaler immédiatement.\n4. Protéger Rateb des erreurs : fact-checker quand c'est critique, challenger quand une approche semble risquée.\n\n# Ce que je ne fais jamais\n\n- Inventer des données, des statistiques, ou des faits.\n- Être condescendant ou paternaliste.\n- Faire du small talk inutile quand Rateb est en mode travail.\n- Répondre "en tant qu'IA, je..." — on s'en fout. Je réponds comme quelqu'un de compétent le ferait.\nSOUL
+   95  2026-04-16 10:01  openclaw daemon restart
+   96  2026-04-16 10:01  cat ~/.openclaw/agents/main/SOUL.md | head -5
+   97  2026-04-16 10:01  openclaw session reset\nopenclaw daemon restart
+   98  2026-04-16 10:01  openclaw sessions reset
+   99  2026-04-16 10:01  cat > ~/.openclaw/workspace/USER.md << 'EOF'\n# Rateb\n\nPropriétaire de cet agent. Voir SOUL.md pour le contexte complet.\nEOF
+  100  2026-04-16 10:01  openclaw sessions list
+  101  2026-04-16 10:01  openclaw sessions delete main
+  102  2026-04-16 10:01  rm -rf ~/.openclaw/agents/main/sessions/*\nopenclaw daemon restart
+  103  2026-04-16 10:01  cp ~/.openclaw/agents/main/SOUL.md ~/.openclaw/workspace/SOUL.md
+  104  2026-04-16 10:01  cat > ~/.openclaw/workspace/USER.md << 'EOF'\n# Rateb\n- Fondateur d'INFERA Studio\n- Lead Dev chez Orange Luxembourg (alternance, M1)\n- Basé à Metz, France\n- 21 ans\nEOF
+  105  2026-04-16 10:01  rm -rf ~/.openclaw/agents/main/sessions/*\nopenclaw daemon restart
+  106  2026-04-16 10:01  rm -f ~/.openclaw/workspace/BOOTSTRAP.md\nrm -rf ~/.openclaw/agents/main/sessions/*\nopenclaw daemon restart
+  107  2026-04-16 10:01  openclaw skills install coding-agent
+  108  2026-04-16 10:01  mkdir -p ~/.openclaw/workspace/skills/coding-agent\ncat > ~/.openclaw/workspace/skills/coding-agent/SKILL.md << 'SKILL'\n---\nname: coding-agent\ndescription: Delegate complex coding tasks to Claude Code CLI running in the background. Use for building features, debugging, refactoring, running tests, and PR reviews.\n---\n\n# Coding Agent Delegation\n\nWhen Rateb asks for a coding task (build, fix, debug, refactor, test), delegate to Claude Code.\n\n## How to launch Claude Code\n\nForeground (short tasks):\n```\nbash workdir:~/Projects/infera-green command:"claude --print --permission-mode bypassPermissions 'YOUR TASK HERE'"\n```\n\nBackground (long tasks):\n```\nbash workdir:~/Projects/infera-green background:true command:"claude --print --permission-mode bypassPermissions 'YOUR TASK HERE. When completely finished, run: openclaw system event --text \"Done: BRIEF SUMMARY\" --mode now'"\n```\n\n## Rules\n\n- ALWAYS run in the project directory: ~/Projects/infera-green\n- NEVER run Claude Code in ~/.openclaw/\n- Send a message when starting: what task, where\n- Send a message when done: what was changed\n- For quick one-liner edits, just use the edit tool directly — no need to spawn Claude Code\nSKILL
+  109  2026-04-16 10:01  openclaw daemon restart
+  110  2026-04-16 10:01  mkdir -p ~/Projects\ncd ~/Projects\ngit clone https://github.com/Ratebah20/RSE.git
+  111  2026-04-16 10:01  mkdir -p ~/Projects\ncd ~/Projects\ngit clone https://github.com/Ratebah20/RSE.git
+  112  2026-04-16 10:01  mkdir -p ~/Projects\ncd ~/Projects\ngit clone https://github.com/Ratebah20/RSE.git
+  113  2026-04-16 10:01  git config --global user.name "Ratebah20"\ngit config --global user.email "ratib132@gmail.com"
+  114  2026-04-16 10:01  mkdir -p ~/Projects\ncd ~/Projects\ngit clone https://github.com/Ratebah20/RSE.git
+  115  2026-04-16 10:01  cd ..
+  116  2026-04-16 10:01  ls
+  117  2026-04-16 10:01  cd Projects
+  118  2026-04-16 10:01  ls
+  119  2026-04-16 10:01  git clone https://github.com/Ratebah20/RSE.git
+  120  2026-04-16 10:01  claude
+  121  2026-04-16 10:01  claude install
+  122  2026-04-16 10:01  echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+  123  2026-04-16 10:01  claude
+  124  2026-04-16 10:01  brew install gh
+  125  2026-04-16 10:01  claude
+  126  2026-04-16 10:01  gh repo clone Ratebah20/RSE
+  127  2026-04-16 10:01  brew install --cask cursor
+  128  2026-04-16 10:01  cat > ~/.openclaw/workspace/skills/coding-agent/SKILL.md << 'SKILL'\n---\nname: coding-agent\ndescription: Delegate complex coding tasks to Claude Code CLI. Use for building features, debugging, refactoring, running tests, and PR reviews on INFERA projects.\n---\n\n# Coding Agent Delegation\n\nWhen Rateb asks for a coding task (build, fix, debug, refactor, test), delegate to Claude Code via the bash tool.\n\n## IMPORTANT: Always use the bash tool, NEVER use sessions_spawn or ACP.\n\n## How to launch Claude Code\n\nFor short tasks (< 5 min):\n```\nbash workdir:~/Projects/infera-green command:"claude --print --permission-mode bypassPermissions 'YOUR TASK HERE'"\n```\n\nFor long tasks (> 5 min), run in background:\n```\nbash workdir:~/Projects/infera-green background:true command:"claude --print --permission-mode bypassPermissions 'YOUR TASK HERE. When completely finished, run: openclaw system event --text \"Done: BRIEF SUMMARY\" --mode now'"\n```\n\n## Quick test command\n```\nbash workdir:~/Projects command:"claude --print --permission-mode bypassPermissions 'Write a Python script that prints bonjour and run it'"\n```\n\n## Rules\n\n- Use the `bash` tool to invoke `claude` CLI. Do NOT use sessions_spawn, ACP, or any other method.\n- Default project directory: ~/Projects/infera-green\n- NEVER run Claude Code in ~/.openclaw/\n- Tell Rateb when you start a task and when it finishes.\n- For simple one-liner edits, use the edit tool directly — don't spawn Claude Code for trivial stuff.\n- If Claude Code is not available, fall back to writing code directly with the write/edit tools.\nSKILL
+  129  2026-04-16 10:01  rm -rf ~/.openclaw/agents/main/sessions/*\nopenclaw daemon restart
+  130  2026-04-16 10:01  render psql dpg-d69bgos9c44c7387ar00-a
+  131  2026-04-16 10:01  brew install render
+  132  2026-04-16 10:01  render psql dpg-d69bgos9c44c7387ar00-a
+  133  2026-04-16 10:01  colima ssh
+  134  2026-04-16 10:01  brew install libpq
+  135  2026-04-16 10:01  echo 'export PATH="/opt/homebrew/opt/libpq/bin:$PATH"' >> ~/.zshrc\n  source ~/.zshrc
+  136  2026-04-16 10:01  render psql dpg-d69bgos9c44c7387ar00-a
+  137  2026-04-16 10:01  ollama run qwen3:8b "Qu'est-ce que le VSME (Voluntary Standard for non-listed Micro and SME Enterprises) ? Réponds en 3 phrases maximum, en français."
+  138  2026-04-16 10:01  ollama run mistral "Qu'est-ce que le VSME (Voluntary Standard for non-listed Micro and SME Enterprises) ? Réponds en 3 phrases maximum, en français."
+  139  2026-04-16 10:01  ollama run qwen3:8b "Tu es un agent de scoring. Évalue la pertinence de cet appel d'offres pour une entreprise SaaS qui vend du reporting ESG/VSME aux PME. Réponds uniquement avec un score de 0 à 10 et une justification en 1 phrase. AO : 'Accompagnement à la mise en place d'un bilan carbone et reporting extra-financier pour la communauté de communes du Pays de Metz, budget 45 000€, deadline 15 avril 2026'"
+  140  2026-04-16 10:01  ollama run mistral "Tu es un agent de scoring. Évalue la pertinence de cet appel d'offres pour une entreprise SaaS qui vend du reporting ESG/VSME aux PME. Réponds uniquement avec un score de 0 à 10 et une justification en 1 phrase. AO : 'Accompagnement à la mise en place d'un bilan carbone et reporting extra-financier pour la communauté de communes du Pays de Metz, budget 45 000€, deadline 15 avril 2026'"
+  141  2026-04-16 10:01  ollama run qwen2.5-coder:7b "Écris une fonction Python qui interroge l'API BOAMP (https://boamp-datadila.opendatasoft.com/api/explore/v2.1/catalog/datasets/boamp/records) avec un filtre sur le mot-clé 'ESG' et retourne les 5 derniers résultats. Utilise requests."
+  142  2026-04-16 10:01  ollama run qwen3:8b "Résume en 2 phrases : La directive CSRD impose aux grandes entreprises européennes de plus de 1000 employés de publier des rapports de durabilité détaillés. Pour les PME non cotées, l'EFRAG a développé le standard volontaire VSME qui propose un cadre simplifié de reporting ESG adapté à leurs moyens et ressources limités. Le VSME couvre les aspects environnementaux, sociaux et de gouvernance avec des indicateurs proportionnés."
+  143  2026-04-16 10:01  ollama run qwen3:8b --verbose "Écris un paragraphe de 100 mots sur l'avenir de l'ESG en Europe." 2>&1 | tail -5
+  144  2026-04-16 10:01  ollama run mistral --verbose "Écris un paragraphe de 100 mots sur l'avenir de l'ESG en Europe." 2>&1 | tail -5
+  145  2026-04-16 10:01  ollama run qwen2.5-coder:7b --verbose "Écris un paragraphe de 100 mots sur l'avenir de l'ESG en Europe." 2>&1 | tail -5
+  146  2026-04-16 10:01  system_profiler SPHardwareDataType
+  147  2026-04-16 10:01  brew install --cask geekbench
+  148  2026-04-16 10:01  ollama run qwen3:8b --verbose "Génère une analyse détaillée de 500 mots sur le marché ESG en Europe en 2026, avec des chiffres et des tendances." 2>&1 | tail -8
+  149  2026-04-16 10:01  ollama pull qwen3:30b-a3b\nollama run qwen3:30b-a3b --verbose "Tu es un expert ESG. Qu'est-ce que le VSME de l'EFRAG ? Réponds en 3 phrases." 2>&1 | tail -8
+  150  2026-04-16 10:01  ollama pull deepseek-r1:14b\nollama run deepseek-r1:14b --verbose "Évalue cet AO pour un SaaS ESG : Bilan carbone pour la communauté de communes de Metz, budget 45K€. Score 0-10 et justification en 1 phrase." 2>&1 | tail -8
+  151  2026-04-16 10:01  ollama pull qwen3:32b\nollama run qwen3:32b --verbose "Tu es un expert ESG. Qu'est-ce que le VSME de l'EFRAG ? Réponds en 3 phrases." 2>&1 | tail -8
+  152  2026-04-16 10:01  ollama rm qwen3:8b\nollama rm qwen3:32b\nollama rm qwen2.5-coder:7b\nollama rm deepseek-r1:14b
+  153  2026-04-16 10:01  ollama list
+  154  2026-04-16 10:01  openclaw config set agents.defaults.model.primary "ollama/qwen3:30b-a3b"\nopenclaw daemon restart
+  155  2026-04-16 10:01  ollama run qwen3:30b-a3b "Un fermier a 17 moutons. Tous sauf 9 meurent. Combien lui en reste-t-il ?"
+  156  2026-04-16 10:01  ollama run qwen3:30b-a3b "INFERA Green coûte 429€/mois. Si j'ai 12 clients qui paient mensuellement, quel est mon ARR ? Si mon coût serveur est de 200€/mois et que je me verse 2000€/mois, à partir de combien de clients suis-je rentable ?"
+  157  2026-04-16 10:01  ollama run qwen3:30b-a3b "Je suis un solo founder qui lance un SaaS de reporting VSME/ESG à 429€/mois pour les PME en France et Luxembourg. Mes concurrents sont Esgrid (625€/mois) et AutoRFP.ai (899€/mois). Je n'ai aucun client. Donne-moi 3 stratégies concrètes pour signer mon premier client en moins de 30 jours. Pas de bullshit, que du concret."
+  158  2026-04-16 10:01  ollama run qwen3:30b-a3b "Analyse cet appel d'offres et dis-moi si une startup SaaS ESG devrait y répondre. Justifie en 5 lignes max.\n\nObjet : Mission d'accompagnement à l'élaboration du rapport de durabilité de la Métropole du Grand Paris conformément aux exigences de la CSRD.\nBudget : 120 000€ HT\nDélai d'exécution : 18 mois\nCritères d'attribution : Qualité technique 60%, Prix 40%\nConditions : Références obligatoires de missions similaires auprès de collectivités de plus de 100 000 habitants."
+  159  2026-04-16 10:01  ollama run qwen3:30b-a3b "Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME alors que les grandes entreprises vont bientôt exiger des données ESG de leurs fournisseurs. Ton direct, factuel, avec des chiffres. Pas de ton corporate, pas d'emojis, pas de 'je suis ravi de'."
+  160  2026-04-16 10:01  ollama run qwen3:30b-a3b "Quel est le chiffre d'affaires d'INFERA Studio en 2025 ?"
+  161  2026-04-16 10:01  ls
+  162  2026-04-16 10:01  claude
+  163  2026-04-16 10:01  clear
+  164  2026-04-16 10:01  claude
+  165  2026-04-16 10:01  cd Documents
+  166  2026-04-16 10:01  ls
+  167  2026-04-16 10:01  cd Projects
+  168  2026-04-16 10:01  ls
+  169  2026-04-16 10:01  clear
+  170  2026-04-16 10:01  claude
+  171  2026-04-16 10:01  tmux attach -t claude
+  172  2026-04-16 10:01  tmux new -s claude
+  173  2026-04-16 10:01  ls
+  174  2026-04-16 10:01  cd RSE
+  175  2026-04-16 10:01  npm run dev
+  176  2026-04-16 10:01  ls
+  177  2026-04-16 10:01  claude
+  178  2026-04-16 10:01  clear
+  179  2026-04-16 10:01  clear
+  180  2026-04-16 10:01  exit
+  181  2026-04-16 10:01  claude update
+  182  2026-04-16 10:01  clear
+  183  2026-04-16 10:01  claude 
+  184  2026-04-16 10:01  tmux attach -t claude
+  185  2026-04-16 10:01  clear
+  186  2026-04-16 10:01  cd apps/web
+  187  2026-04-16 10:01  cd RSE
+  188  2026-04-16 10:01  cd apps/web
+  189  2026-04-16 10:01  npm run dev
+  190  2026-04-16 10:01  cd RSE
+  191  2026-04-16 10:01  ls
+  192  2026-04-16 10:01  claude
+  193  2026-04-16 10:01  cd apps/api
+  194  2026-04-16 10:01  npm run start:dev
+  195  2026-04-16 10:01  claude update
+  196  2026-04-16 10:01  clear
+  197  2026-04-16 10:01  cd RSE
+  198  2026-04-16 10:01  claude
+  199  2026-04-16 10:01  clear
+  200  2026-04-16 10:01  cd..
+  201  2026-04-16 10:01  cd //
+  202  2026-04-16 10:01  cd ..
+  203  2026-04-16 10:01  cd ..
+  204  2026-04-16 10:01  exit
+  205  2026-04-16 10:01  cd RSE
+  206  2026-04-16 10:01  ls
+  207  2026-04-16 10:01  cd apps/api
+  208  2026-04-16 10:01  npm run start:dev
+  209  2026-04-16 10:01  cd apps/web
+  210  2026-04-16 10:01  cd RSE
+  211  2026-04-16 10:01  cd apps/web
+  212  2026-04-16 10:01  npm run dev
+  213  2026-04-16 10:01  cd infera_recruit
+  214  2026-04-16 10:01  clear
+  215  2026-04-16 10:01  claude
+  216  2026-04-16 10:01  ls
+  217  2026-04-16 10:01  git clone https://github.com/Ratebah20/Infera_studio.git
+  218  2026-04-16 10:01  git clone https://github.com/Ratebah20/infera_legal.git
+  219  2026-04-16 10:01  cd RSE
+  220  2026-04-16 10:01  claude
+  221  2026-04-16 10:01  cd RSE
+  222  2026-04-16 10:01  claude
+  223  2026-04-16 10:01  ollama run qwen3:30b-a3b "Quel est le chiffre d'affaires d'INFERA Studio en 2025 ?"
+  224  2026-04-16 10:01  ollama run qwen3:30b-a3b "Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME alors que les grandes entreprises vont bientôt exiger des données ESG de leurs fournisseurs. Ton direct, factuel, avec des chiffres. Pas de ton corporate, pas d'emojis, pas de 'je suis ravi de'."
+  225  2026-04-16 10:01  sudo powermetrics --samplers smc -i 5000 -n 1 | grep -i "die temp"
+  226  2026-04-16 10:01  sudo powermetrics --samplers smc -i 5000 -n 1 | grep -i "die temp"
+  227  2026-04-16 10:01  sudo powermetrics --samplers thermal -i 5000 -n 1 | grep -i "temp"
+  228  2026-04-16 10:01  pmset -g thermlog
+  229  2026-04-16 10:01  brew install --cask stats
+  230  2026-04-16 10:01  ollama run qwen3:30b-a3b "Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME alors que les grandes entreprises vont bientôt exiger des données ESG de leurs fournisseurs. Ton direct, factuel, avec des chiffres. Pas de ton corporate, pas d'emojis, pas de 'je suis ravi de'."
+  231  2026-04-16 10:01  ollama ps
+  232  2026-04-16 10:01  colima stop\ncolima start --cpu 2 --memory 4 --disk 60 --arch aarch64 --vm-type vz --vz-rosetta
+  233  2026-04-16 10:01  launchctl setenv OLLAMA_KEEP_ALIVE "1m"\nbrew services restart ollama
+  234  2026-04-16 10:01  colima status
+  235  2026-04-16 10:01  colima stats
+  236  2026-04-16 10:01  ollama run qwen3:30b-a3b "Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME alors que les grandes entreprises vont bientôt exiger des données ESG de leurs fournisseurs. Ton direct, factuel, avec des chiffres. Pas de ton corporate, pas d'emojis, pas de 'je suis ravi de'."
+  237  2026-04-16 10:01  colima status
+  238  2026-04-16 10:01  ollama run qwen3:30b-a3b "Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME alors que les grandes entreprises vont bientôt exiger des données ESG de leurs fournisseurs. Ton direct, factuel, avec des chiffres. Pas de ton corporate, pas d'emojis, pas de 'je suis ravi de'."
+  239  2026-04-16 10:01  ollama run qwen3:30b-a3b "/no_think Rédige un post LinkedIn de 150 mots maximum sur le fait que 99% des PME françaises ne sont pas prêtes pour le VSME..."
+  240  2026-04-16 10:01  openclaw daemon stop\n
+  241  2026-04-16 10:01  launchctl unload ~/Library/LaunchAgents/ai.openclaw.gateway.plist
+  242  2026-04-16 10:01  brew install --cask maccy
+  243  2026-04-16 10:01  colima status
+  244  2026-04-16 10:01  colima start
+  245  2026-04-16 10:01  brew install --cask maccy
+  246  2026-04-16 10:01  npm run start:dev
+  247  2026-04-16 10:01  \tclear
+  248  2026-04-16 10:01  npm run start:dev
+  249  2026-04-16 10:01  npm run start:dev
+  250  2026-04-16 10:01  ;2A
+  251  2026-04-16 10:01  npm run start:dev
+  252  2026-04-16 10:01  npm run start:dev
+  253  2026-04-16 10:01  cd Infera_studio
+  254  2026-04-16 10:01  claude
+  255  2026-04-16 10:01  claude
+  256  2026-04-16 10:01  claude
+  257  2026-04-16 10:01  clear
+  258  2026-04-16 10:01  cd ..
+  259  2026-04-16 10:01  ls
+  260  2026-04-16 10:01  claude
+  261  2026-04-16 10:01  clear
+  262  2026-04-16 10:01  claude
+  263  2026-04-16 10:01  claer
+  264  2026-04-16 10:01  clear
+  265  2026-04-16 10:01  claude update
+  266  2026-04-16 10:01  claer
+  267  2026-04-16 10:01  clear
+  268  2026-04-16 10:01  claude
+  269  2026-04-16 10:01  claude
+  270  2026-04-16 10:01  claude
+  271  2026-04-16 10:01  claude
+  272  2026-04-16 10:01  cd motionVIdeo
+  273  2026-04-16 10:01  claude
+  274  2026-04-16 10:01  clear
+  275  2026-04-16 10:01  cd ..
+  276  2026-04-16 10:01  cd RSE
+  277  2026-04-16 10:01  ls
+  278  2026-04-16 10:01  tu peux mettre à jour le icon de site par les vrai ? 
+  279  2026-04-16 10:01  claudez
+  280  2026-04-16 10:01  claude
+  281  2026-04-16 10:01  clear
+  282  2026-04-16 10:01  cd ..
+  283  2026-04-16 10:01  cd Infera_studio
+  284  2026-04-16 10:01  ls
+  285  2026-04-16 10:01  ls
+  286  2026-04-16 10:01  npm install
+  287  2026-04-16 10:01  npm run dev
+  288  2026-04-16 10:01  cd Infera_studio
+  289  2026-04-16 10:01  npm run dev
+  290  2026-04-16 10:01  npm run dev
+  291  2026-04-16 10:01  npm run dev
+  292  2026-04-16 10:01  npm run dev
+  293  2026-04-16 10:01  claude upate
+  294  2026-04-16 10:01  claude update
+  295  2026-04-16 10:01  clear
+  296  2026-04-16 10:01  claude
+  297  2026-04-16 10:01  clear
+  298  2026-04-16 10:01  clear
+  299  2026-04-16 10:01  clear
+  300  2026-04-16 10:01  cd Infera_studio
+  301  2026-04-16 10:01  npm run dev
+  302  2026-04-16 10:01  npm run dev
+  303  2026-04-16 10:01  npm run dev
+  304  2026-04-16 10:01  npm run dev
+  305  2026-04-16 10:01  clear
+  306  2026-04-16 10:01  clear
+  307  2026-04-16 10:01  ls
+  308  2026-04-16 10:01  cd Infera_studio
+  309  2026-04-16 10:01  ls
+  310  2026-04-16 10:01  claude
+  311  2026-04-16 10:01  npm run build
+  312  2026-04-16 10:01  clear
+  313  2026-04-16 10:01  claude update
+  314  2026-04-16 10:01  claer
+  315  2026-04-16 10:01  clear
+  316  2026-04-16 10:01  claude
+  317  2026-04-16 10:01  npm run dev
+  318  2026-04-16 10:01  npm run dev
+  319  2026-04-16 10:01  npm run dev
+  320  2026-04-16 10:01  npm run dev
+  321  2026-04-16 10:01  npm run dev
+  322  2026-04-16 10:01  npm run dev
+  323  2026-04-16 10:01  npm run dev
+  324  2026-04-16 10:01  npm run dev
+  325  2026-04-16 10:01  clear
+  326  2026-04-16 10:01  claude
+  327  2026-04-16 10:01  clear
+  328  2026-04-16 10:01  claer
+  329  2026-04-16 10:01  clear
+  330  2026-04-16 10:01  DATABASE_URL="postgresql://infera_green:hRNor6EmzcJMV4a8eG6zk8Kee3YFtzG3@dpg-d69bgos9c44c7387ar00-a.frankfurt-postgres.render.com/infera_green" pnpm --filter database db:seed-prod
+  331  2026-04-16 10:01  cd Infera_studio
+  332  2026-04-16 10:01  git add .
+  333  2026-04-16 10:01  git commmit -m "changment vidéo"
+  334  2026-04-16 10:01  git commit -m "changment vidéo"
+  335  2026-04-16 10:01  git branch
+  336  2026-04-16 10:01  git push origin main
+  337  2026-04-16 10:01  cd RSE
+  338  2026-04-16 10:01  ls
+  339  2026-04-16 10:01  claude
+  340  2026-04-16 10:01  cd RSE
+  341  2026-04-16 10:01  claude
+  342  2026-04-16 10:01  claude update
+  343  2026-04-16 10:01  claer
+  344  2026-04-16 10:01  clear
+  345  2026-04-16 10:01  claude
+  346  2026-04-16 10:01  claude
+  347  2026-04-16 10:01  claude update
+  348  2026-04-16 10:01  clear
+  349  2026-04-16 10:01  claer
+  350  2026-04-16 10:01  clear
+  351  2026-04-16 10:01  claude update
+  352  2026-04-16 10:01  clear
+  353  2026-04-16 10:01  claude --enable-auto-mode
+  354  2026-04-16 10:01  clear
+  355  2026-04-16 10:01  clear
+  356  2026-04-16 10:01  ls
+  357  2026-04-16 10:01  /Applications/Anki.app/Contents/MacOS/launcher ; exit;
+  358  2026-04-16 10:01  cd infera_recruit
+  359  2026-04-16 10:01  cd recrutement_v2
+  360  2026-04-16 10:01  npm run start:dev
+  361  2026-04-16 10:01  npm run start:dev
+  362  2026-04-16 10:01  npm run start:dev
+  363  2026-04-16 10:01  npm run start:dev
+  364  2026-04-16 10:01  npm run start:dev
+  365  2026-04-16 10:01  npm run start:dev
+  366  2026-04-16 10:01  cd infera_recruit
+  367  2026-04-16 10:01  cd recrutement_v2
+  368  2026-04-16 10:01  cd ..
+  369  2026-04-16 10:01  cd recrutement_v2_front
+  370  2026-04-16 10:01  npm run dev
+  371  2026-04-16 10:01  npm run dev
+  372  2026-04-16 10:01  npm run dev
+  373  2026-04-16 10:01  clear
+  374  2026-04-16 10:01  cd ..
+  375  2026-04-16 10:01  clear
+  376  2026-04-16 10:01  ls
+  377  2026-04-16 10:01  claude update
+  378  2026-04-16 10:01  clear
+  379  2026-04-16 10:01  claude --enable-auto-mode
+  380  2026-04-16 10:01  clear
+  381  2026-04-16 10:01  cd infera_recruit
+  382  2026-04-16 10:01  ls
+  383  2026-04-16 10:01  colima status
+  384  2026-04-16 10:01  colima start
+  385  2026-04-16 10:01  clear
+  386  2026-04-16 10:01  claude
+  387  2026-04-16 10:01  clear
+  388  2026-04-16 10:01  claide
+  389  2026-04-16 10:01  claude
+  390  2026-04-16 10:01  claer
+  391  2026-04-16 10:01  clear
+  392  2026-04-16 10:01  claude
+  393  2026-04-16 10:01  clear
+  394  2026-04-16 10:01  claude 
+  395  2026-04-16 10:01  clear
+  396  2026-04-16 10:01  claude
+  397  2026-04-16 10:01  clear
+  398  2026-04-16 10:01  claude
+  399  2026-04-16 10:01  clear
+  400  2026-04-16 10:01  claude
+  401  2026-04-16 10:01  clear
+  402  2026-04-16 10:01  claude
+  403  2026-04-16 10:01  clear
+  404  2026-04-16 10:01  claude
+  405  2026-04-16 10:01  clear
+  406  2026-04-16 10:01  claude
+  407  2026-04-16 10:01  clear
+  408  2026-04-16 10:01  claude
+  409  2026-04-16 10:01  clear
+  410  2026-04-16 10:01  claude
+  411  2026-04-16 10:01  claude
+  412  2026-04-16 10:01  clear
+  413  2026-04-16 10:01  claude
+  414  2026-04-16 10:01  cd infera_
+  415  2026-04-16 10:01  cd infera_legal
+  416  2026-04-16 10:01  ls
+  417  2026-04-16 10:01  claude
+  418  2026-04-16 10:01  clear
+  419  2026-04-16 10:01  claude
+  420  2026-04-16 10:01  claude
+  421  2026-04-16 10:01  clear
+  422  2026-04-16 10:01  claude upadte
+  423  2026-04-16 10:01  claude update
+  424  2026-04-16 10:01  clear
+  425  2026-04-16 10:01  claude
+  426  2026-04-16 10:01  clear
+  427  2026-04-16 10:01  claude
+  428  2026-04-16 10:01  clear
+  429  2026-04-16 10:01  claude
+  430  2026-04-16 10:01  clear
+  431  2026-04-16 10:01  ls
+  432  2026-04-16 10:01  cd django-templates
+  433  2026-04-16 10:01  claude
+  434  2026-04-16 10:01  clear
+  435  2026-04-16 10:01  claude update
+  436  2026-04-16 10:01  clear
+  437  2026-04-16 10:01  clear
+  438  2026-04-16 10:01  claude
+  439  2026-04-16 10:01  claude --enable-auto-mode
+  440  2026-04-16 10:01  clear
+  441  2026-04-16 10:01  cd soundMixer
+  442  2026-04-16 10:01  claude --enable-auto-mode
+  443  2026-04-16 10:01  clear
+  444  2026-04-16 10:01  claer
+  445  2026-04-16 10:01  claer
+  446  2026-04-16 10:01  clear
+  447  2026-04-16 10:01  claude
+  448  2026-04-16 10:01  clear
+  449  2026-04-16 10:01  clear
+  450  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  451  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  452  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  453  2026-04-16 10:01  echo "127.0.0.1 gitlab.local" | sudo tee -a /etc/hosts\n
+  454  2026-04-16 10:01  docker exec gitlab cat /etc/gitlab/initial_root_password\n
+  455  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  456  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  457  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  458  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  459  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  460  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  461  2026-04-16 10:01  colima info
+  462  2026-04-16 10:01  colmima help
+  463  2026-04-16 10:01  colima help
+  464  2026-04-16 10:01  colima stop
+  465  2026-04-16 10:01  colima start --cpu 4 --memory 8 --disk 60
+  466  2026-04-16 10:01  docker info\n
+  467  2026-04-16 10:01  mkdir -p ~/gitlab-tp && cd ~/gitlab-tp\n
+  468  2026-04-16 10:01  ls
+  469  2026-04-16 10:01  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab\n    hostname: gitlab.local\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        gitlab_rails['gitlab_shell_ssh_port'] = 2222\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n        grafana['enable'] = false\n    ports:\n      - "8080:8080"\n      - "2222:22"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n    shm_size: '256m'\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\nEOF
+  470  2026-04-16 10:01  docker compose up -d\n
+  471  2026-04-16 10:01  docker-compose up -d
+  472  2026-04-16 10:01  docker logs -f gitlab\n
+  473  2026-04-16 10:01  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab\n    hostname: gitlab.local\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        gitlab_rails['gitlab_shell_ssh_port'] = 2222\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - "8080:8080"\n      - "2222:22"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n    shm_size: '256m'\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\nEOF
+  474  2026-04-16 10:01  docker compose down\ndocker compose up -d
+  475  2026-04-16 10:01  docker-compose down
+  476  2026-04-16 10:01  docker-compose up -d
+  477  2026-04-16 10:01  docker logs -f gitlab\n
+  478  2026-04-16 10:01  docker logs -f gitlab\n
+  479  2026-04-16 10:01  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab\n    hostname: gitlab.local\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local'\n        gitlab_rails['gitlab_shell_ssh_port'] = 2222\n        nginx['listen_port'] = 80\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - "8080:80"\n      - "2222:22"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n    shm_size: '256m'\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\nEOF
+  480  2026-04-16 10:01  docker-compose down
+  481  2026-04-16 10:01  docker-compose up -d
+  482  2026-04-16 10:01  docker logs -f gitlab\n
+  483  2026-04-16 10:01  docker-compose down
+  484  2026-04-16 10:01  docker-compose up -d
+  485  2026-04-16 10:01  docker logs -f gitlab\n
+  486  2026-04-16 10:01  docker logs -f gitlab\n
+  487  2026-04-16 10:01  ls
+  488  2026-04-16 10:01  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab\n    hostname: gitlab.local\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        nginx['listen_port'] = 8929\n        gitlab_rails['gitlab_shell_ssh_port'] = 2222\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - "8080:8929"\n      - "2222:22"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n    shm_size: '256m'\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\nEOF
+  489  2026-04-16 10:01  docker-compose down
+  490  2026-04-16 10:01  docker-compose up -d
+  491  2026-04-16 10:01  docker logs -f gitlab
+  492  2026-04-16 10:01  cd ~\ngit clone https://github.com/app-generator/django-templates.git\ncd django-templates
+  493  2026-04-16 10:01  ls
+  494  2026-04-16 10:01  cd ..
+  495  2026-04-16 10:01  ls
+  496  2026-04-16 10:01  ls
+  497  2026-04-16 10:01  cd gitlab-tp
+  498  2026-04-16 10:01  cd django-templates
+  499  2026-04-16 10:01  git remote remove origin\ngit remote add origin http://gitlab.local:8080/root/python-app.git\ngit push -u origin main
+  500  2026-04-16 10:01  ls
+  501  2026-04-16 10:01  git branch
+  502  2026-04-16 10:01  git remote
+  503  2026-04-16 10:01  git remote -v
+  504  2026-04-16 10:01  git branch -M main
+  505  2026-04-16 10:01  git push -u origin main
+  506  2026-04-16 10:01  cd ~/django-templates\nls -la\ncat requirements.txt
+  507  2026-04-16 10:01  cat config/settings.py\n
+  508  2026-04-16 10:01  cat config/urls.py\n
+  509  2026-04-16 10:01  cat > requirements.txt << 'EOF'\ndjango==3.2.25\npsycopg2-binary==2.9.10\ngunicorn==23.0.0\nEOF
+  510  2026-04-16 10:01  cat > config/settings.py << 'SETTINGS'\nimport os\nfrom pathlib import Path\n\nBASE_DIR = Path(__file__).resolve().parent.parent\n\nSECRET_KEY = os.getenv("SECRET_KEY", "dev-secret-key-change-me")\nDEBUG = os.getenv("DEBUG", "True") == "True"\nALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS", "*").split(",")\n\nINSTALLED_APPS = [\n    'django.contrib.admin',\n    'django.contrib.auth',\n    'django.contrib.contenttypes',\n    'django.contrib.sessions',\n    'django.contrib.messages',\n    'django.contrib.staticfiles',\n    'sample_app',\n]\n\nMIDDLEWARE = [\n    'django.middleware.security.SecurityMiddleware',\n    'django.contrib.sessions.middleware.SessionMiddleware',\n    'django.middleware.common.CommonMiddleware',\n    'django.middleware.csrf.CsrfViewMiddleware',\n    'django.contrib.auth.middleware.AuthenticationMiddleware',\n    'django.contrib.messages.middleware.MessageMiddleware',\n    'django.middleware.clickjacking.XFrameOptionsMiddleware',\n]\n\nROOT_URLCONF = 'config.urls'\nTEMPLATES_DIR = os.path.join(BASE_DIR, "templates")\n\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [TEMPLATES_DIR],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',\n                'django.contrib.messages.context_processors.messages',\n            ],\n        },\n    },\n]\n\nWSGI_APPLICATION = 'config.wsgi.application'\n\nDATABASES = {\n    'default': {\n        'ENGINE': os.getenv("DB_ENGINE", "django.db.backends.postgresql"),\n        'NAME': os.getenv("DB_NAME", "appdb"),\n        'USER': os.getenv("DB_USER", "appuser"),\n        'PASSWORD': os.getenv("DB_PASSWORD", "apppass"),\n        'HOST': os.getenv("DB_HOST", "db"),\n        'PORT': os.getenv("DB_PORT", "5432"),\n    }\n}\n\nAUTH_PASSWORD_VALIDATORS = [\n    {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},\n    {'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator'},\n    {'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator'},\n    {'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator'},\n]\n\nLANGUAGE_CODE = 'en-us'\nTIME_ZONE = 'UTC'\nUSE_I18N = True\nUSE_L10N = True\nUSE_TZ = True\n\nSTATIC_URL = '/static/'\nDEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'\nSETTINGS
+  511  2026-04-16 10:01  cat > Dockerfile.basic << 'EOF'\nFROM python:3.12\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 8000\nCMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]\nEOF
+  512  2026-04-16 10:01  cat > Dockerfile << 'EOF'\n# --- Build stage ---\nFROM python:3.12-alpine AS builder\nWORKDIR /app\nRUN apk add --no-cache gcc musl-dev libpq-dev\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --prefix=/install -r requirements.txt\n\n# --- Production stage ---\nFROM python:3.12-alpine\nWORKDIR /app\nRUN apk add --no-cache libpq\nCOPY --from=builder /install /usr/local\nCOPY . .\nEXPOSE 8000\nRUN adduser -D appuser && chown -R appuser /app\nUSER appuser\nCMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "config.wsgi:application"]\nEOF
+  513  2026-04-16 10:01  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  app:\n    build: .\n    container_name: django-app\n    ports:\n      - "8000:8000"\n    environment:\n      - DB_HOST=db\n      - DB_NAME=appdb\n      - DB_USER=appuser\n      - DB_PASSWORD=apppass\n      - SECRET_KEY=super-secret-key-change-me\n      - DEBUG=True\n      - ALLOWED_HOSTS=*\n    depends_on:\n      db:\n        condition: service_healthy\n\n  db:\n    image: postgres:16-alpine\n    container_name: django-db\n    environment:\n      POSTGRES_DB: appdb\n      POSTGRES_USER: appuser\n      POSTGRES_PASSWORD: apppass\n    volumes:\n      - pgdata:/var/lib/postgresql/data\n    healthcheck:\n      test: ["CMD-SHELL", "pg_isready -U appuser -d appdb"]\n      interval: 5s\n      timeout: 3s\n      retries: 5\n\nvolumes:\n  pgdata:\nEOF
+  514  2026-04-16 10:01  docker build -t django-app:optimized -f Dockerfile .\ndocker images | grep django-app
+  515  2026-04-16 10:01  docker-compose up -d --build
+  516  2026-04-16 10:01  docker ps -a
+  517  2026-04-16 10:01  docker exec django-app python manage.py migrate\n
+  518  2026-04-16 10:01  curl http://localhost:8000/\n
+  519  2026-04-16 10:01  docker images | grep django-app\n
+  520  2026-04-16 10:01  docker build -t django-app:basic -f Dockerfile.basic .\ndocker images | grep django-app
+  521  2026-04-16 10:01  git add .\ngit commit -m "Add Dockerfile, docker-compose, PostgreSQL config"\ngit push origin main
+  522  2026-04-16 10:01  docker run -d \\n  --name gitlab-runner \\n  --restart unless-stopped \\n  -v gitlab_runner_config:/etc/gitlab-runner \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  gitlab/gitlab-runner:latest
+  523  2026-04-16 10:01  cd ..
+  524  2026-04-16 10:01  ls
+  525  2026-04-16 10:01  cd ~/gitlab-tp\ncat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab\n    hostname: gitlab.local\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        nginx['listen_port'] = 8080\n        gitlab_rails['gitlab_shell_ssh_port'] = 2222\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - "8080:8080"\n      - "2222:22"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n    shm_size: '256m'\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\nEOF
+  526  2026-04-16 10:01  docker exec -it gitlab-runner gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab:8929" \\n  --token "glrt-WaUsk2ZWk9xh5d1wpZHHhW86MQpwOjEKdDozCnU6MQ8.01.171wyp9k8" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-network-mode "gitlab-tp_default" \\n  --description "docker-runner"
+  527  2026-04-16 10:01  docker network ls | grep gitlab\n
+  528  2026-04-16 10:01  docker ps --format '{{.Names}}' | grep gitlab\n
+  529  2026-04-16 10:01  docker rm -f gitlab-runner\ndocker run -d \\n  --name gitlab-runner \\n  --restart unless-stopped \\n  --network gitlab-tp_default \\n  -v gitlab_runner_config:/etc/gitlab-runner \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  gitlab/gitlab-runner:latest
+  530  2026-04-16 10:01  docker inspect gitlab-runner --format '{{range $k,$v := .NetworkSettings.Networks}}{{$k}}{{end}}'\n
+  531  2026-04-16 10:01  docker exec -it gitlab-runner gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab:8929" \\n  --token "glrt-WaUsk2ZWk9xh5d1wpZHHhW86MQpwOjEKdDozCnU6MQ8.01.171wyp9k8" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-network-mode "gitlab-tp_default" \\n  --description "docker-runner"
+  532  2026-04-16 10:01  cd django-templates
+  533  2026-04-16 10:01  cat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build\n  - deploy\n\nvariables:\n  IMAGE_NAME: django-app\n  IMAGE_TAG: $CI_COMMIT_SHORT_SHA\n\nbuild:\n  stage: build\n  image: docker:latest\n  services:\n    - docker:dind\n  variables:\n    DOCKER_HOST: unix:///var/run/docker.sock\n  script:\n    - docker build -t $IMAGE_NAME:$IMAGE_TAG .\n    - docker build -t $IMAGE_NAME:latest .\n  tags:\n    - docker\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  variables:\n    DOCKER_HOST: unix:///var/run/docker.sock\n  script:\n    - docker stop django-app || true\n    - docker rm django-app || true\n    - docker run -d --name django-app --network gitlab-tp_default -p 8000:8000\n      -e DB_HOST=django-db\n      -e DB_NAME=appdb\n      -e DB_USER=appuser\n      -e DB_PASSWORD=apppass\n      -e SECRET_KEY=super-secret-key\n      -e ALLOWED_HOSTS=*\n      $IMAGE_NAME:latest\n  tags:\n    - docker\n  only:\n    - main\n    - master\nEOF
+  534  2026-04-16 10:01  git add .\ngit commit -m "Add CI/CD pipeline"\ngit push origin master
+  535  2026-04-16 10:01  git push origin main
+  536  2026-04-16 10:01  docker exec -it gitlab-runner bash -c "cat /etc/gitlab-runner/config.toml"\n
+  537  2026-04-16 10:01  docker exec -it gitlab-runner bash -c "cat > /etc/gitlab-runner/config.toml << 'EOF'\nconcurrent = 1\ncheck_interval = 0\nshutdown_timeout = 0\n[session_server]\n  session_timeout = 1800\n[[runners]]\n  name = \"docker-runner\"\n  url = \"http://gitlab:8929\"\n  clone_url = \"http://gitlab:8929\"\n  id = 37\n  token = \"glrt-WaUsk2ZWk9xh5d1wpZHHhW86MQpwOjEKdDozCnU6MQ8.01.171wyp9k8\"\n  token_obtained_at = 2026-04-01T10:46:58Z\n  token_expires_at = 0001-01-01T00:00:00Z\n  executor = \"docker\"\n  [runners.cache]\n    MaxUploadedArchiveSize = 0\n    [runners.cache.s3]\n    [runners.cache.gcs]\n    [runners.cache.azure]\n  [runners.docker]\n    tls_verify = false\n    image = \"docker:latest\"\n    privileged = false\n    disable_entrypoint_overwrite = false\n    oom_kill_disable = false\n    disable_cache = false\n    volumes = [\"/cache\", \"/var/run/docker.sock:/var/run/docker.sock\"]\n    volume_keep = false\n    network_mode = \"gitlab-tp_default\"\n    shm_size = 0\n    network_mtu = 0\nEOF"
+  538  2026-04-16 10:01  docker restart gitlab-runner\n
+  539  2026-04-16 10:01  curl http://localhost:8000/\n
+  540  2026-04-16 10:01  git add .
+  541  2026-04-16 10:01  git commit -m "change port"
+  542  2026-04-16 10:01  git push origin main
+  543  2026-04-16 10:01  curl http://localhost:8001/\n
+  544  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Ports}}'
+  545  2026-04-16 10:01  curl http://localhost:8001/\n
+  546  2026-04-16 10:01  curl http://localhost:8001/\n
+  547  2026-04-16 10:01  git add .
+  548  2026-04-16 10:01  git commit -m "change port 8000"
+  549  2026-04-16 10:01  git push origin main
+  550  2026-04-16 10:01  curl http://localhost:8001/\n
+  551  2026-04-16 10:01  docker ps -a
+  552  2026-04-16 10:01  docker images | grep django-app
+  553  2026-04-16 10:01  docker exec django-app python manage.py dbshell
+  554  2026-04-16 10:01  docker exec django-app python manage.py shell -c "\nfrom django.db import connection\ncursor = connection.cursor()\ncursor.execute('SELECT version();')\nprint('DB connectée :', cursor.fetchone()[0])\n"
+  555  2026-04-16 10:01  docker inspect django-db --format '{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{end}}'\ndocker inspect django-app --format '{{range $k,$v := .NetworkSettings.Networks}}{{$k}} {{end}}'
+  556  2026-04-16 10:01  docker stop django-app django-db || true\ndocker rm django-app django-db || true\ndocker rmi django-app:370f1627 django-app:basic django-app:c42665ba django-app:fabda8e1 django-app:latest django-app:optimized
+  557  2026-04-16 10:01  cd ~/django-templates\ncat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build\n  - deploy\n\nvariables:\n  IMAGE_NAME: django-app\n  IMAGE_TAG: $CI_COMMIT_SHORT_SHA\n\nbuild:\n  stage: build\n  image: docker:latest\n  services:\n    - docker:dind\n  variables:\n    DOCKER_HOST: unix:///var/run/docker.sock\n  script:\n    - docker build -t $IMAGE_NAME:$IMAGE_TAG .\n    - docker build -t $IMAGE_NAME:latest .\n  tags:\n    - docker\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  variables:\n    DOCKER_HOST: unix:///var/run/docker.sock\n  script:\n    # Stopper les anciens conteneurs\n    - docker stop django-app || true\n    - docker rm django-app || true\n    # Lancer la DB si elle n'existe pas déjà\n    - |\n      if ! docker ps -q -f name=django-db | grep -q .; then\n        docker run -d --name django-db --network gitlab-tp_default \\n          -e POSTGRES_DB=appdb \\n          -e POSTGRES_USER=appuser \\n          -e POSTGRES_PASSWORD=apppass \\n          -v pgdata:/var/lib/postgresql/data \\n          postgres:16-alpine\n        echo "Waiting for DB to be ready..."\n        sleep 10\n      fi\n    # Lancer l'app\n    - docker run -d --name django-app --network gitlab-tp_default -p 8001:8000\n      -e DB_HOST=django-db\n      -e DB_NAME=appdb\n      -e DB_USER=appuser\n      -e DB_PASSWORD=apppass\n      -e SECRET_KEY=super-secret-key\n      -e ALLOWED_HOSTS=*\n      $IMAGE_NAME:latest\n    # Appliquer les migrations\n    - sleep 5\n    - docker exec django-app python manage.py migrate\n  tags:\n    - docker\n  only:\n    - main\n    - master\nEOF
+  558  2026-04-16 10:01  git add .\ngit commit -m "CI/CD: manage DB + app deployment on same network"\ngit push origin main
+  559  2026-04-16 10:01  git remote set-url origin http://rateb@gitlab.local:8080/root/python-app.git\n
+  560  2026-04-16 10:01  git add .
+  561  2026-04-16 10:01  git commit -m "init"
+  562  2026-04-16 10:01  git push origin main
+  563  2026-04-16 10:01  docker exec django-app python manage.py shell -c "\nfrom django.db import connection\ncursor = connection.cursor()\ncursor.execute('SELECT version();')\nprint('DB connectée :', cursor.fetchone()[0])\n"
+  564  2026-04-16 10:01  docker ps -a
+  565  2026-04-16 10:01  docker images | grep django-app
+  566  2026-04-16 10:01  git add .
+  567  2026-04-16 10:01  git commit -m "test"
+  568  2026-04-16 10:01  git push orign main
+  569  2026-04-16 10:01  git push origin main
+  570  2026-04-16 10:01  git config --global credential.helper
+  571  2026-04-16 10:01  git config credential.helper
+  572  2026-04-16 10:01  git credential-osxkeychain erase\nhost=gitlab.local\nprotocol=http
+  573  2026-04-16 10:01  git push origin main
+  574  2026-04-16 10:01  git add .
+  575  2026-04-16 10:01  git commit -m "addd"
+  576  2026-04-16 10:01  git push origin main
+  577  2026-04-16 10:01  docker exec django-app python manage.py shell -c "\nfrom django.db import connection\ncursor = connection.cursor()\ncursor.execute('SELECT version();')\nprint('DB connectée :', cursor.fetchone()[0])\n"
+  578  2026-04-16 10:01  docker exec -it django-db psql -U appuser -d appdb\n
+  579  2026-04-16 10:01  SELECT * FROM auth_user;
+  580  2026-04-16 10:01  docker exec -it django-app python manage.py createsuperuser\n
+  581  2026-04-16 10:01  docker exec -it django-db psql -U appuser -d appdb\n
+  582  2026-04-16 10:01  git add .
+  583  2026-04-16 10:01  git commit -m "page login"
+  584  2026-04-16 10:01  git push origin main
+  585  2026-04-16 10:01  docker exec -it django-db psql -U appuser -d appdb
+  586  2026-04-16 10:01  docker images
+  587  2026-04-16 10:01  history
+  588  2026-04-16 10:01  docker images
+  589  2026-04-16 10:01  docker rmi django-app:003088fc django-app:30021372 django-app:5cb9aaf8 django-app:bab95525 django-app:de69102b\n
+  590  2026-04-16 10:01  docker images
+  591  2026-04-16 10:01  docker rmi django-app:latest django-templates-app:latest
+  592  2026-04-16 10:01  docker rmi django-app:latest django-templates-app:latest
+  593  2026-04-16 10:01  docker images
+  594  2026-04-16 10:01  docker system prune -f
+  595  2026-04-16 10:01  ./scripts/bundle.sh && open SoundMixer.app
+  596  2026-04-16 10:01  cd soundMixer
+  597  2026-04-16 10:01  ./scripts/bundle.sh && open SoundMixer.app
+  598  2026-04-16 10:01  ./scripts/bundle.sh && open SoundMixer.app
+  599  2026-04-16 10:01  cd ..
+  600  2026-04-16 10:01  cd formation
+  601  2026-04-16 10:01  git clone https://github.com/Ratebah20/frontMyTraningHR.git
+  602  2026-04-16 10:01  git clone https://github.com/Ratebah20/NestJS_MytrainingHQ.git
+  603  2026-04-16 10:01  ls
+  604  2026-04-16 10:01  claude
+  605  2026-04-16 10:01  CLAUDE_CODE_NO_FLICKER=1 claude
+  606  2026-04-16 10:01  ! softwareupdate --install-rosetta
+  607  2026-04-16 10:01  ! softwareupdate --install-rosetta
+  608  2026-04-16 10:01  ls
+  609  2026-04-16 10:01  cd code
+  610  2026-04-16 10:01  claude
+  611  2026-04-16 10:01  clear
+  612  2026-04-16 10:01  claude --dangerously-skip-permissions
+  613  2026-04-16 10:01  claude update
+  614  2026-04-16 10:01  clear
+  615  2026-04-16 10:01  claude
+  616  2026-04-16 10:01  clear
+  617  2026-04-16 10:01  cd RSE
+  618  2026-04-16 10:01  claude
+  619  2026-04-16 10:01  cd english
+  620  2026-04-16 10:01  claude --dangerously-skip-permissions
+  621  2026-04-16 10:01  ls
+  622  2026-04-16 10:01  cd motionVIdeo
+  623  2026-04-16 10:01  ls
+  624  2026-04-16 10:01  git status
+  625  2026-04-16 10:01  git add .
+  626  2026-04-16 10:01  git commit -m "amelioration video"
+  627  2026-04-16 10:01  git branch
+  628  2026-04-16 10:01  git push origin main
+  629  2026-04-16 10:01  cd ..
+  630  2026-04-16 10:01  ls
+  631  2026-04-16 10:01  cd soundMixer
+  632  2026-04-16 10:01  git status
+  633  2026-04-16 10:01  git add .
+  634  2026-04-16 10:01  git commit -m "add"
+  635  2026-04-16 10:01  git branch
+  636  2026-04-16 10:01  git push origin master
+  637  2026-04-16 10:01  git puhs
+  638  2026-04-16 10:01  git push
+  639  2026-04-16 10:01  git pusg
+  640  2026-04-16 10:01  git push
+  641  2026-04-16 10:01  git remote -v
+  642  2026-04-16 10:01  clear
+  643  2026-04-16 10:01  cd ..
+  644  2026-04-16 10:01  clear
+  645  2026-04-16 10:01  cd infera_recruit
+  646  2026-04-16 10:01  lks
+  647  2026-04-16 10:01  ls
+  648  2026-04-16 10:01  clear
+  649  2026-04-16 10:01  claude
+  650  2026-04-16 10:01  clear
+  651  2026-04-16 10:01  claude --dangerously-skip-permissions
+  652  2026-04-16 10:01  cd english
+  653  2026-04-16 10:01  claude --dangerously-skip-permissions
+  654  2026-04-16 10:01  cd english
+  655  2026-04-16 10:01  ls
+  656  2026-04-16 10:01  npm run dev$
+  657  2026-04-16 10:01  npm run dev
+  658  2026-04-16 10:01  npm run dev
+  659  2026-04-16 10:01  npm run dev
+  660  2026-04-16 10:01  claude update
+  661  2026-04-16 10:01  claer
+  662  2026-04-16 10:01  clear
+  663  2026-04-16 10:01  claude
+  664  2026-04-16 10:01  clear
+  665  2026-04-16 10:01  claude updatge
+  666  2026-04-16 10:01  clear
+  667  2026-04-16 10:01  claude update
+  668  2026-04-16 10:01  clear
+  669  2026-04-16 10:01  cla
+  670  2026-04-16 10:01  cd english
+  671  2026-04-16 10:01  claude
+  672  2026-04-16 10:01  clear
+  673  2026-04-16 10:01  claer
+  674  2026-04-16 10:01  claer
+  675  2026-04-16 10:01  claer
+  676  2026-04-16 10:01  clear
+  677  2026-04-16 10:01  clear
+  678  2026-04-16 10:01  cd ..
+  679  2026-04-16 10:01  ls
+  680  2026-04-16 10:01  claer
+  681  2026-04-16 10:01  clear
+  682  2026-04-16 10:01  clear
+  683  2026-04-16 10:01  cd infera_recruit
+  684  2026-04-16 10:01  claude
+  685  2026-04-16 10:01  cleazr
+  686  2026-04-16 10:01  clear
+  687  2026-04-16 10:01  clear
+  688  2026-04-16 10:01  claude update
+  689  2026-04-16 10:01  claer
+  690  2026-04-16 10:01  clear
+  691  2026-04-16 10:01  claude
+  692  2026-04-16 10:01  clear
+  693  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'\n
+  694  2026-04-16 10:01  colima statrus
+  695  2026-04-16 10:01  colima status
+  696  2026-04-16 10:01  colima start
+  697  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'\n
+  698  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\n
+  699  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/
+  700  2026-04-16 10:01  \tcolima list\n
+  701  2026-04-16 10:01  colima status
+  702  2026-04-16 10:01  docker images
+  703  2026-04-16 10:01  ssh-keygen -t ed25519 -C "rateb@gitlab.local"
+  704  2026-04-16 10:01  cat ~/.ssh/id_ed25519.pub
+  705  2026-04-16 10:01  git remote set-url origin ssh://git@gitlab.local:2222/root/python-app.git
+  706  2026-04-16 10:01  cd django-templates
+  707  2026-04-16 10:01  git remote set-url origin ssh://git@gitlab.local:2222/root/python-app.git
+  708  2026-04-16 10:01  ssh -T -p 2222 git@gitlab.local\n
+  709  2026-04-16 10:01  ssh -T -p 2222 git@gitlab.local\n
+  710  2026-04-16 10:01  cd ..
+  711  2026-04-16 10:01  cd pipeline
+  712  2026-04-16 10:01  git init
+  713  2026-04-16 10:01  git remote add origin ssh://git@gitlab.local:2222/root/pipeline.git\n
+  714  2026-04-16 10:01  git add .
+  715  2026-04-16 10:01  git commit -m "add"
+  716  2026-04-16 10:01  git push origin main
+  717  2026-04-16 10:01  git branch -M main
+  718  2026-04-16 10:01  git push origin main
+  719  2026-04-16 10:01  cd ..
+  720  2026-04-16 10:01  docker compose down\ndocker rm -f gitlab-runner django-app django-db || true
+  721  2026-04-16 10:01  cd ~/gitlab-tp\ncat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab-ce:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab-ce\n    restart: unless-stopped\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        nginx['listen_port'] = 80\n        nginx['listen_https'] = false\n        gitlab_rails['gitlab_port'] = 8080\n        registry_external_url 'http://gitlab.local:5050'\n        registry_nginx['listen_https'] = false\n        gitlab_rails['registry_enabled'] = true\n        registry_nginx['listen_port'] = 5050\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - 8080:80\n      - 8434:443\n      - 2222:22\n      - 5050:5050\n    expose:\n      - 80\n      - 443\n      - 22\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n\n  gitlab-runner:\n    image: gitlab/gitlab-runner:alpine\n    container_name: gitlab-runner\n    restart: unless-stopped\n    depends_on:\n      - gitlab-ce\n    volumes:\n      - /var/run/docker.sock:/var/run/docker.sock\n      - gitlab_runner_config:/etc/gitlab-runner\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\n  gitlab_runner_config:\nEOF
+  722  2026-04-16 10:01  docker compose up -d\n
+  723  2026-04-16 10:01  docker-compose up -d\n
+  724  2026-04-16 10:01  docker ps -a --format '{{.Names}}\t{{.Ports}}' | grep 2222
+  725  2026-04-16 10:01  docker rm -f $(docker ps -a -q --filter "publish=2222")\n
+  726  2026-04-16 10:01  docker rm -f $(docker ps -a -q --filter "publish=2222")\n
+  727  2026-04-16 10:01  docker ps -a --format '{{.Names}}\t{{.Ports}}' | grep 2222
+  728  2026-04-16 10:01  docker compose up -d
+  729  2026-04-16 10:01  docker-compose up -d
+  730  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  731  2026-04-16 10:01  \tcurl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\n
+  732  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  733  2026-04-16 10:01  \tcurl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\n
+  734  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  735  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\n
+  736  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  737  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/
+  738  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  739  2026-04-16 10:01  cat /etc/hosts | grep gitlab\n
+  740  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'\n
+  741  2026-04-16 10:01  docker logs gitlab-ce --tail 30\n
+  742  2026-04-16 10:01  docker compose down\ndocker volume rm gitlab-tp_gitlab_config\ndocker compose up -d
+  743  2026-04-16 10:01  docker compose down
+  744  2026-04-16 10:01  docker-compose down
+  745  2026-04-16 10:01  docker volume rm gitlab-tp_gitlab_config
+  746  2026-04-16 10:01  docker-compose up -d
+  747  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  748  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'\n
+  749  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  750  2026-04-16 10:01  docker exec gitlab-ce cat /etc/gitlab/initial_root_password\n
+  751  2026-04-16 10:01  docker exec -it gitlab-ce gitlab-rake "gitlab:password:reset[root]"\n
+  752  2026-04-16 10:01  docker compose down -v\ndocker compose up -d
+  753  2026-04-16 10:01  docker-compose down -v
+  754  2026-04-16 10:01  docker-compose up -d
+  755  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  756  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  757  2026-04-16 10:01  docker logs -f gitlab-ce\n
+  758  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  759  2026-04-16 10:01  docker exec gitlab-ce cat /etc/gitlab/initial_root_password\n
+  760  2026-04-16 10:01  brew install glab
+  761  2026-04-16 10:01  glab auth login --hostname gitlab.local:8080
+  762  2026-04-16 10:01  glab auth login --hostname gitlab.local:8080
+  763  2026-04-16 10:01  glab config set -h gitlab.local:8080 api_protocol http\nglab config set -h gitlab.local:8080 git_protocol http
+  764  2026-04-16 10:01  glab auth status
+  765  2026-04-16 10:01  glab auth login --hostname gitlab.local:8080 --token "glpat-FQxyZwpYwDboukzhhIjHTW86MQp1OjMH.01.0w1w4ytzm"
+  766  2026-04-16 10:01  glab auth status
+  767  2026-04-16 10:01  glab config set -h gitlab.local:8080 api_protocol http\nglab config set -h gitlab.local:8080 git_protocol http\nglab auth status
+  768  2026-04-16 10:01  glab config set api_protocol http --host gitlab.local:8080\nglab config set git_protocol http --host gitlab.local:8080
+  769  2026-04-16 10:01  glab auth status
+  770  2026-04-16 10:01  glab auth login --hostname localhost:8080 --token "glpat-FQxyZwpYwDboukzhhIjHTW86MQp1OjMH.01.0w1w4ytzm"\nglab config set api_protocol http --host localhost:8080\nglab config set git_protocol http --host localhost:8080
+  771  2026-04-16 10:01  glab auth status
+  772  2026-04-16 10:01  glab auth logout --hostname gitlab.com\nglab auth logout --hostname gitlab.local:8080\nglab auth status
+  773  2026-04-16 10:01  cat ~/Library/Application\ Support/glab-cli/config.yml\n
+  774  2026-04-16 10:01  cat > ~/Library/Application\ Support/glab-cli/config.yml << 'EOF'\ngit_protocol: http\neditor:\nbrowser:\nglamour_style: dark\ncheck_update: true\ndisplay_hyperlinks: false\nhost: localhost:8080\nno_prompt: false\ntelemetry: false\nhosts:\n    localhost:8080:\n        token: glpat-FQxyZwpYwDboukzhhIjHTW86MQp1OjMH.01.0w1w4ytzm\n        api_protocol: http\n        git_protocol: http\nEOF
+  775  2026-04-16 10:01  glab auth status\n
+  776  2026-04-16 10:01  docker exec -it gitlab-ce gitlab-rake "gitlab:password:reset[root]"\n
+  777  2026-04-16 10:01  docker exec -it gitlab-runner gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab-ce:80" \\n  --token "glrt-Ad6kGF1x3PNAtsGN_Ng4CW86MQpwOjEKdDozCnU6MQ8.01.170zdi1s2" \\n  --executor "docker" \\n  --docker-image "alpine:latest" \\n  --docker-network-mode "gitlab-tp_default" \\n  --description "docker-runner"
+  778  2026-04-16 10:01  docker exec -it gitlab-runner sh -c "sed -i '/url = \"http:\/\/gitlab-ce:80\"/a\  clone_url = \"http://gitlab-ce:80\"' /etc/gitlab-runner/config.toml && sed -i 's|volumes = \[\"/cache\"\]|volumes = [\"/cache\", \"/var/run/docker.sock:/var/run/docker.sock\"]|' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner
+  779  2026-04-16 10:01  cat > .gitlab-ci.yml << 'EOF'\nimage: alpine:latest\n\nstages:\n  - build\n  - test\n  - deploy\n\nbuild:\n  stage: build\n  script:\n    - echo "=== STAGE BUILD ==="\n    - echo "Listing files..."\n    - ls -la\n    - echo "Current directory:"\n    - pwd\n    - echo "Build done!"\n\ntest:\n  stage: test\n  script:\n    - echo "=== STAGE TEST ==="\n    - echo "Running tests..."\n    - echo "2 + 2 = 4" | grep "4" && echo "Test PASSED" || echo "Test FAILED"\n    - echo "All tests done!"\n\ndeploy:\n  stage: deploy\n  image: alpine/curl\n  script:\n    - echo "=== STAGE DEPLOY ==="\n    - echo "Checking GitLab is reachable..."\n    - curl -I http://gitlab-ce:80\n    - echo "Deploy done!"\nEOF
+  780  2026-04-16 10:01  cd pipeline
+  781  2026-04-16 10:01  git add .\ngit commit -m "First pipeline with 3 stages"\ngit remote add origin http://localhost:8080/root/pipeline.git\ngit push -u origin main
+  782  2026-04-16 10:01  ssh-keygen -R "[gitlab.local]:2222"
+  783  2026-04-16 10:01  cat ~/.ssh/id_ed25519.pub\n
+  784  2026-04-16 10:01  ssh -T -p 2222 git@localhost\n
+  785  2026-04-16 10:01  git remote set-url origin ssh://git@localhost:2222/root/pipeline.git\ngit push -u origin main
+  786  2026-04-16 10:01  git status
+  787  2026-04-16 10:01  git add .
+  788  2026-04-16 10:01  git commit -m "add de nouveau"
+  789  2026-04-16 10:01  git push origin main
+  790  2026-04-16 10:01  glab auth logout --hostname localhost:8080\nglab auth login --hostname localhost:8080 --token "glpat-MdGZXaRCYliyO_g06ZNLom86MQp1OjQH.01.0w0qa5j12"\nglab config set api_protocol http --host localhost:8080\nglab config set git_protocol http --host localhost:8080\nglab auth status
+  791  2026-04-16 10:01  cat ~/.ssh/id_ed25519.pub\n
+  792  2026-04-16 10:01  ssh-keygen -t ed25519 -C "rateb@gitlab.local" -f ~/.ssh/id_ed25519_rateb\ncat ~/.ssh/id_ed25519_rateb.pub
+  793  2026-04-16 10:01  cat >> ~/.ssh/config << 'EOF'\nHost gitlab-local\n  HostName localhost\n  Port 2222\n  User git\n  IdentityFile ~/.ssh/id_ed25519_rateb\nEOF
+  794  2026-04-16 10:01  git remote set-url origin git@gitlab-local:/root/pipeline.git\ngit push origin main
+  795  2026-04-16 10:01  git commit --allow-empty -m "Test push as rateb"\ngit push origin main
+  796  2026-04-16 10:01  docker exec -it gitlab-runner sh -c "sed -i 's|privileged = false|privileged = true|' /etc/gitlab-runner/config.toml"
+  797  2026-04-16 10:01  docker exec gitlab-runner cat /etc/gitlab-runner/config.toml\n
+  798  2026-04-16 10:01  colima ssh -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "localhost:5050"]\n}\nEOF'
+  799  2026-04-16 10:01  colima ssh -- sudo systemctl daemon-reload\ncolima ssh -- sudo systemctl restart docker
+  800  2026-04-16 10:01  docker restart gitlab-runner\n
+  801  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:5050/v2/\n
+  802  2026-04-16 10:01  docker login localhost:5050 -u root -p "Honest2004&&&&"
+  803  2026-04-16 10:01  cd ~/pipeline\ncat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build\n  - test\n  - deploy\n\nvariables:\n  IMAGE_NAME: localhost:5050/root/pipeline\n  IMAGE_TAG: $CI_COMMIT_SHORT_SHA\n\nbuild:\n  stage: build\n  image: docker:latest\n  services:\n    - docker:dind\n  variables:\n    DOCKER_HOST: unix:///var/run/docker.sock\n  script:\n    - echo "=== STAGE BUILD ==="\n    - echo "Login to GitLab Registry..."\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - echo "Building image..."\n    - docker build -t $CI_REGISTRY_IMAGE:$IMAGE_TAG -t $CI_REGISTRY_IMAGE:latest .\n    - echo "Pushing image to registry..."\n    - docker push $CI_REGISTRY_IMAGE:$IMAGE_TAG\n    - docker push $CI_REGISTRY_IMAGE:latest\n    - echo "Build done!"\n  tags:\n    - docker\n\ntest:\n  stage: test\n  image: $CI_REGISTRY_IMAGE:latest\n  script:\n    - echo "=== STAGE TEST ==="\n    - echo "Running tests from registry image..."\n    - ls -la\n    - pwd\n    - echo "All tests passed!"\n  tags:\n    - docker\n\ndeploy:\n  stage: deploy\n  image: $CI_REGISTRY_IMAGE:latest\n  script:\n    - echo "=== STAGE DEPLOY ==="\n    - echo "Deploying from registry image..."\n    - echo "App deployed successfully!"\n  tags:\n    - docker\n  only:\n    - main\n    - master\nEOF
+  804  2026-04-16 10:01  cat > Dockerfile << 'EOF'\nFROM alpine:latest\nRUN apk add --no-cache curl\nWORKDIR /app\nCOPY . .\nCMD ["echo", "Hello from GitLab Registry!"]\nEOF
+  805  2026-04-16 10:01  git add .\ngit commit -m "Pipeline with GitLab Container Registry"\ngit push origin main
+  806  2026-04-16 10:01  docker exec -it gitlab-runner cat /etc/gitlab-runner/config.toml
+  807  2026-04-16 10:01  cd ~/gitlab-tp\ncat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab-ce:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab-ce\n    hostname: gitlab.local\n    restart: unless-stopped\n    networks:\n      default:\n        aliases:\n          - gitlab.local\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        nginx['listen_port'] = 80\n        nginx['listen_https'] = false\n        gitlab_rails['gitlab_port'] = 8080\n        registry_external_url 'http://gitlab.local:5050'\n        registry_nginx['listen_https'] = false\n        gitlab_rails['registry_enabled'] = true\n        registry_nginx['listen_port'] = 5050\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - 8080:80\n      - 8434:443\n      - 2222:22\n      - 5050:5050\n    expose:\n      - 80\n      - 443\n      - 22\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n\n  gitlab-runner:\n    image: gitlab/gitlab-runner:alpine\n    container_name: gitlab-runner\n    restart: unless-stopped\n    depends_on:\n      - gitlab-ce\n    volumes:\n      - /var/run/docker.sock:/var/run/docker.sock\n      - gitlab_runner_config:/etc/gitlab-runner\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\n  gitlab_runner_config:\nEOF
+  808  2026-04-16 10:01  docker-compose down
+  809  2026-04-16 10:01  docker-compose up -d 
+  810  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/
+  811  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/
+  812  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/
+  813  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/
+  814  2026-04-16 10:01  git commit --allow-empty -m "Retry with network alias"\ngit push origin main
+  815  2026-04-16 10:01  cd ~/pipeline\ngit commit --allow-empty -m "Retry with network alias"\ngit push origin main
+  816  2026-04-16 10:01  cd pipeline
+  817  2026-04-16 10:01  git commit --allow-empty -m "Retry with network alias"\ngit push origin main
+  818  2026-04-16 10:01  cd ..
+  819  2026-04-16 10:01  cd ~/pipeline\ncp ~/django-templates/manage.py .\ncp -r ~/django-templates/config .\ncp -r ~/django-templates/sample_app .\ncp -r ~/django-templates/templates .
+  820  2026-04-16 10:01  cd ..
+  821  2026-04-16 10:01  ls
+  822  2026-04-16 10:01  cd gitlab-tp
+  823  2026-04-16 10:01  ls
+  824  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ncp ../django-templates/manage.py .\ncp -r ../django-templates/config .\ncp -r ../django-templates/sample_app .\ncp -r ../django-templates/templates .\ncp ../django-templates/requirements.txt .
+  825  2026-04-16 10:01  cat > Dockerfile.preprod << 'EOF'\nFROM python:3.12\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nEXPOSE 8000\nCMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]\nEOF
+  826  2026-04-16 10:01  cat > Dockerfile.prod << 'EOF'\nFROM python:3.12-alpine AS builder\nWORKDIR /app\nRUN apk add --no-cache gcc musl-dev libpq-dev\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --prefix=/install -r requirements.txt\n\nFROM python:3.12-alpine\nWORKDIR /app\nRUN apk add --no-cache libpq\nCOPY --from=builder /install /usr/local\nCOPY . .\nEXPOSE 8000\nRUN adduser -D appuser && chown -R appuser /app\nUSER appuser\nCMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "config.wsgi:application"]\nEOF
+  827  2026-04-16 10:01  cat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build_preprod\n  - build_prod\n\nvariables:\n  DOCKER_HOST: unix:///var/run/docker.sock\n\nbuild_preprod:\n  stage: build_preprod\n  image: docker:latest\n  script:\n    - echo "=== BUILD PREPROD ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:preprod -f Dockerfile.preprod .\n    - docker push $CI_REGISTRY_IMAGE:preprod\n    - echo "Image preprod pushed!"\n    - echo "--- Image size ---"\n    - docker images $CI_REGISTRY_IMAGE:preprod --format "{{.Size}}"\n  tags:\n    - docker\n\nbuild_prod:\n  stage: build_prod\n  image: docker:latest\n  script:\n    - echo "=== BUILD PROD ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:prod -f Dockerfile.prod .\n    - docker push $CI_REGISTRY_IMAGE:prod\n    - echo "Image prod pushed!"\n    - echo "--- Image size ---"\n    - docker images $CI_REGISTRY_IMAGE:prod --format "{{.Size}}"\n  tags:\n    - docker\nEOF
+  828  2026-04-16 10:01  git add .\ngit commit -m "Build preprod and prod images with pipeline"\ngit push origin main
+  829  2026-04-16 10:01  docker inspect gitlab-ce --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}'\n
+  830  2026-04-16 10:01  docker exec -it gitlab-runner sh -c "sed -i '/network_mtu = 0/a\    extra_hosts = [\"gitlab.local:172.19.0.2\"]' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner
+  831  2026-04-16 10:01  docker exec gitlab-runner cat /etc/gitlab-runner/config.toml\n
+  832  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ngit commit --allow-empty -m "Retry with extra_hosts"\ngit push origin main
+  833  2026-04-16 10:01  colima ssh -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "localhost:5050"],\n  "dns": ["8.8.8.8"]\n}\nEOF'
+  834  2026-04-16 10:01  colima ssh -- sudo sh -c 'echo "172.19.0.2 gitlab.local" >> /etc/hosts'\n
+  835  2026-04-16 10:01  colima ssh -- sudo systemctl restart docker\n
+  836  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}'\n
+  837  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ngit commit --allow-empty -m "Retry after Colima DNS fix"\ngit push origin main
+  838  2026-04-16 10:01  git commit --allow-empty -m "Retry after Colima DNS fix"\ngit push origin main
+  839  2026-04-16 10:01  git commit --allow-empty -m "Retryy after Colima DNS fix"\ngit push origin main
+  840  2026-04-16 10:01  Running with gitlab-runner 18.10.1 (3b43bf9f)\n  on docker-runner Ad6kGF1x3, system ID: r_IPalbGi6Vhhj\nPreparing the "docker" executor\n00:01\nUsing Docker executor with image docker:latest ...\nUsing effective pull policy of [always] for container docker:latest\nPulling docker image docker:latest ...\nUsing docker image sha256:f80c26212befc1c1988b529495532c6b9180d9b1dab1611f4a1efbe9da8ec821 for docker:latest with digest docker@sha256:f80c26212befc1c1988b529495532c6b9180d9b1dab1611f4a1efbe9da8ec821 ...\nPreparing environment\n00:00\nUsing effective pull policy of [always] for container sha256:e78bb90aa19388b0ca1efe93a7a4ed0955e6581f74a4ec204f894877d1e32a5b\nRunning on runner-ad6kgf1x3-project-1-concurrent-0 via 6544b1213381...\nGetting source from Git repository\n00:01\nGitaly correlation ID: 01KP68B6E9SYWH7E26XAS6TT1R\nFetching changes with git depth set to 20...\nReinitialized existing Git repository in /builds/root/pipeline/.git/\nCreated fresh repository.\nChecking out aff8f0bb as detached HEAD (ref is main)...\nSkipping Git submodules setup\nExecuting "step_script" stage of the job script\n00:00\nUsing effective pull policy of [always] for container docker:latest\nUsing docker image sha256:f80c26212befc1c1988b529495532c6b9180d9b1dab1611f4a1efbe9da8ec821 for docker:latest with digest docker@sha256:f80c26212befc1c1988b529495532c6b9180d9b1dab1611f4a1efbe9da8ec821 ...\n$ echo "=== BUILD PREPROD ==="\n=== BUILD PREPROD ===\n$ docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\nWARNING! Using --password via the CLI is insecure. Use --password-stdin.\nError response from daemon: Get "http://gitlab.local:5050/v2/": Get "http://gitlab.local:8080/jwt/auth?account=gitlab-ci-token&client_id=docker&offline_token=true&service=container_registry": dial tcp 172.19.0.2:8080: connect: connection refused\nCleaning up project directory and file based variables\n00:00\nERROR: Job failed: exit code 1
+  841  2026-04-16 10:01  cd ~/gitlab-tp
+  842  2026-04-16 10:01  colima ssh -- sudo sh -c "sed -i 's/172.19.0.2 gitlab.local/127.0.0.1 gitlab.local/' /etc/hosts"\ncolima ssh -- sudo systemctl restart docker
+  843  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ngit commit --allow-empty -m "Retry with localhost mapping"\ngit push origin main
+  844  2026-04-16 10:01  \ngit commit --allow-empty -m "Retry with localhost mapping"\ngit push origin main
+  845  2026-04-16 10:01  \ngit commit --allow-empty -m "Retry with localhost mapping"\ngit push origin main
+  846  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}'\n\n# Vérifier que GitLab répond\ncurl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n\n# Vérifier que le registry répond\ncurl -s -o /dev/null -w "%{http_code}" http://localhost:5050/v2/\n\n# Vérifier le DNS dans Colima\ncolima ssh -- cat /etc/hosts | grep gitlab
+  847  2026-04-16 10:01  docker images | grep gitlab.local
+  848  2026-04-16 10:01  docker run --rm -p 8000:8000 localhost:5050/root/pipeline:preprod &\nsleep 3\ncurl http://localhost:8000/\ndocker stop $(docker ps -q --filter ancestor=localhost:5050/root/pipeline:preprod)\n
+  849  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ncat > entrypoint.sh << 'EOF'\n#!/bin/sh\n\n# Attendre que la DB soit prête (si PostgreSQL)\nif [ "$DB_ENGINE" != "django.db.backends.sqlite3" ] && [ -n "$DB_HOST" ]; then\n  echo "Waiting for database..."\n  while ! python -c "\nimport socket\ntry:\n    socket.create_connection(('$DB_HOST', ${DB_PORT:-5432}), timeout=2)\n    exit(0)\nexcept:\n    exit(1)\n" 2>/dev/null; do\n    echo "DB not ready, retrying in 2s..."\n    sleep 2\n  done\n  echo "Database is ready!"\nfi\n\n# Appliquer les migrations\necho "Running migrations..."\npython manage.py migrate --noinput\n\n# Lancer l'app\nexec "$@"\nEOF\nchmod +x entrypoint.sh
+  850  2026-04-16 10:01  cat > Dockerfile.preprod << 'EOF'\nFROM python:3.12\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nRUN chmod +x entrypoint.sh\nEXPOSE 8000\nENTRYPOINT ["./entrypoint.sh"]\nCMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]\nEOF
+  851  2026-04-16 10:01  cat > Dockerfile.prod << 'EOF'\nFROM python:3.12-alpine AS builder\nWORKDIR /app\nRUN apk add --no-cache gcc musl-dev libpq-dev\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --prefix=/install -r requirements.txt\n\nFROM python:3.12-alpine\nWORKDIR /app\nRUN apk add --no-cache libpq\nCOPY --from=builder /install /usr/local\nCOPY . .\nRUN chmod +x entrypoint.sh\nEXPOSE 8000\nRUN adduser -D appuser && chown -R appuser /app\nUSER appuser\nENTRYPOINT ["./entrypoint.sh"]\nCMD ["gunicorn", "--bind", "0.0.0.0:8000", "--workers", "2", "config.wsgi:application"]\nEOF
+  852  2026-04-16 10:01  # Supprimer les images locales\ndocker rmi localhost:5050/root/pipeline:preprod localhost:5050/root/pipeline:prod localhost:5050/root/pipeline:latest || true\n\n# Supprimer les anciennes images dangling\ndocker image prune -f
+  853  2026-04-16 10:01  git add .\ngit commit -m "Add entrypoint with auto-migration"\ngit push origin main
+  854  2026-04-16 10:01  docker run --rm -p 8000:8000 \\n  -e DB_ENGINE=django.db.backends.sqlite3 \\n  -e DB_NAME=/app/db.sqlite3 \\n  -e DB_HOST= -e DB_USER= -e DB_PASSWORD= \\n  localhost:5050/root/pipeline:preprod
+  855  2026-04-16 10:01  docker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine\n\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  856  2026-04-16 10:01  docker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine\n\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  857  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ncat > entrypoint.sh << 'EOF'\n#!/bin/sh\n\n# Attendre que la DB soit prête (si PostgreSQL)\nif [ "$DB_ENGINE" != "django.db.backends.sqlite3" ] && [ -n "$DB_HOST" ]; then\n  echo "Waiting for database at $DB_HOST:${DB_PORT:-5432}..."\n  while ! python -c "\nimport socket, sys, os\ntry:\n    socket.create_connection((os.environ['DB_HOST'], int(os.environ.get('DB_PORT', 5432))), timeout=2)\n    sys.exit(0)\nexcept Exception:\n    sys.exit(1)\n" 2>/dev/null; do\n    echo "DB not ready, retrying in 2s..."\n    sleep 2\n  done\n  echo "Database is ready!"\nfi\n\n# Appliquer les migrations\necho "Running migrations..."\npython manage.py migrate --noinput\n\n# Lancer l'app\nexec "$@"\nEOF\nchmod +x entrypoint.sh
+  858  2026-04-16 10:01  docker rm -f test-db\ngit add .\ngit commit -m "Fix entrypoint DB check"\ngit push origin main
+  859  2026-04-16 10:01  docker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine\n\nsleep 5\n\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  860  2026-04-16 10:01  docker images
+  861  2026-04-16 10:01  docker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine\n\nsleep 5\n\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  862  2026-04-16 10:01  # Ctrl+C d'abord pour stopper l'app, puis :\ndocker rm -f test-db\n\n# Relancer\ndocker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine\n\nsleep 5\n\n# Vérifier que la DB tourne\ndocker exec test-db pg_isready -U appuser -d appdb\n\n# Puis lancer l'app\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  863  2026-04-16 10:01  docker rm -f test-db\n
+  864  2026-04-16 10:01  docker run -d --name test-db --network gitlab-tp_default \\n  -e POSTGRES_DB=appdb -e POSTGRES_USER=appuser -e POSTGRES_PASSWORD=apppass \\n  postgres:16-alpine
+  865  2026-04-16 10:01  docker exec test-db pg_isready -U appuser -d appdb
+  866  2026-04-16 10:01  # Puis lancer l'app\ndocker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  867  2026-04-16 10:01  docker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  868  2026-04-16 10:01  docker rmi localhost:5050/root/pipeline:preprod\ndocker pull localhost:5050/root/pipeline:preprod
+  869  2026-04-16 10:01  docker run --rm -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod
+  870  2026-04-16 10:01  curl http://localhost:8000/\n
+  871  2026-04-16 10:01  curl http://localhost:8000/\n
+  872  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Ports}}' | grep pipeline\n
+  873  2026-04-16 10:01  docker run --rm -d -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:preprod\n\nsleep 5\ncurl http://localhost:8000/
+  874  2026-04-16 10:01  docker stop $(docker ps -q --filter ancestor=localhost:5050/root/pipeline:preprod)\ndocker rmi localhost:5050/root/pipeline:prod || true\ndocker pull localhost:5050/root/pipeline:prod\n\ndocker run --rm -d -p 8000:8000 --network gitlab-tp_default \\n  -e DB_HOST=test-db -e DB_NAME=appdb -e DB_USER=appuser -e DB_PASSWORD=apppass \\n  localhost:5050/root/pipeline:prod\n\nsleep 5\ncurl http://localhost:8000/
+  875  2026-04-16 10:01  docker images | grep "root/pipeline"
+  876  2026-04-16 10:01  # Stopper les conteneurs en cours\ndocker stop $(docker ps -q --filter ancestor=localhost:5050/root/pipeline:preprod) || true\ndocker stop $(docker ps -q --filter ancestor=localhost:5050/root/pipeline:prod) || true\ndocker rm -f test-db || true\n\n# Supprimer toutes les images pipeline locales\ndocker rmi localhost:5050/root/pipeline:preprod localhost:5050/root/pipeline:prod || true\ndocker rmi gitlab.local:5050/root/pipeline:preprod gitlab.local:5050/root/pipeline:prod gitlab.local:5050/root/pipeline:latest gitlab.local:5050/root/pipeline:0385a8f4 || true\n\n# Nettoyer les images dangling\ndocker image prune -f
+  877  2026-04-16 10:01  docker images | grep pipeline
+  878  2026-04-16 10:01  docker images | grep pipeline
+  879  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ncat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build_preprod\n  - build_prod\n  - deploy\n\nvariables:\n  DOCKER_HOST: unix:///var/run/docker.sock\n\nbuild_preprod:\n  stage: build_preprod\n  image: docker:latest\n  script:\n    - echo "=== BUILD PREPROD ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:preprod -f Dockerfile.preprod .\n    - docker push $CI_REGISTRY_IMAGE:preprod\n    - echo "Image preprod pushed!"\n    - docker images $CI_REGISTRY_IMAGE:preprod --format "{{.Size}}"\n  tags:\n    - docker\n\nbuild_prod:\n  stage: build_prod\n  image: docker:latest\n  script:\n    - echo "=== BUILD PROD ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:prod -f Dockerfile.prod .\n    - docker push $CI_REGISTRY_IMAGE:prod\n    - echo "Image prod pushed!"\n    - docker images $CI_REGISTRY_IMAGE:prod --format "{{.Size}}"\n  tags:\n    - docker\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  script:\n    - echo "=== DEPLOY ==="\n    # Stopper et supprimer les anciens conteneurs\n    - docker stop django-app || true\n    - docker rm django-app || true\n    - docker stop django-db || true\n    - docker rm django-db || true\n    # Lancer la DB\n    - |\n      if ! docker ps -q -f name=django-db | grep -q .; then\n        docker run -d --name django-db --network gitlab-tp_default \\n          -e POSTGRES_DB=appdb \\n          -e POSTGRES_USER=appuser \\n          -e POSTGRES_PASSWORD=apppass \\n          -v pgdata:/var/lib/postgresql/data \\n          postgres:16-alpine\n        echo "Waiting for DB..."\n        sleep 10\n      fi\n    # Pull et lancer l'app (image prod)\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker pull $CI_REGISTRY_IMAGE:prod\n    - docker run -d --name django-app --network gitlab-tp_default -p 8001:8000\n      -e DB_HOST=django-db\n      -e DB_NAME=appdb\n      -e DB_USER=appuser\n      -e DB_PASSWORD=apppass\n      -e SECRET_KEY=super-secret-key\n      -e ALLOWED_HOSTS=*\n      $CI_REGISTRY_IMAGE:prod\n    - echo "App deployed on port 8001!"\n  tags:\n    - docker\n  only:\n    - main\n    - master\nEOF
+  880  2026-04-16 10:01  git add .\ngit commit -m "Full CI/CD: build preprod + prod + auto deploy"\ngit push origin main
+  881  2026-04-16 10:01  curl http://localhost:8001/
+  882  2026-04-16 10:01  colima stop
+  883  2026-04-16 10:01  ls
+  884  2026-04-16 10:01  cd ..
+  885  2026-04-16 10:01  cd soundMixer
+  886  2026-04-16 10:01  claude
+  887  2026-04-16 10:01  clear
+  888  2026-04-16 10:01  cd ..
+  889  2026-04-16 10:01  cd infera_legal
+  890  2026-04-16 10:01  claude
+  891  2026-04-16 10:01  clear
+  892  2026-04-16 10:01  cd soundMixer
+  893  2026-04-16 10:01  ./scripts/bundle.sh && open SoundMixer.app
+  894  2026-04-16 10:01  cd soundMixer
+  895  2026-04-16 10:01  claude lance ce projet
+  896  2026-04-16 10:01  claude update
+  897  2026-04-16 10:01  claude
+  898  2026-04-16 10:01  open SoundMixer.app
+  899  2026-04-16 10:01  ls
+  900  2026-04-16 10:01  colima start
+  901  2026-04-16 10:01  colima start --profile remote-server --cpu 2 --memory 4 --disk 20 --network-address
+  902  2026-04-16 10:01  colima list
+  903  2026-04-16 10:01  colima ssh --profile remote-server -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "localhost:5050"]\n}\nEOF'
+  904  2026-04-16 10:01  colima ssh -- hostname -I
+  905  2026-04-16 10:01  ipconfig getifaddr en0
+  906  2026-04-16 10:01  colima ssh --profile remote-server -- sudo sh -c 'echo "192.168.1.74 gitlab.local" >> /etc/hosts'\ncolima ssh --profile remote-server -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "192.168.1.74:5050"]\n}\nEOF'\ncolima ssh --profile remote-server -- sudo systemctl restart docker
+  907  2026-04-16 10:01  colima ssh --profile remote-server -- curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/
+  908  2026-04-16 10:01  colima ssh --profile remote-server -- curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:5050/v2/\n
+  909  2026-04-16 10:01  docker context use colima-remote-server
+  910  2026-04-16 10:01  docker run -d \\n  --name gitlab-runner-remote \\n  --restart unless-stopped \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  -v gitlab_runner_remote_config:/etc/gitlab-runner \\n  gitlab/gitlab-runner:alpine
+  911  2026-04-16 10:01  docker exec -it gitlab-runner-remote gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab.local:8080" \\n  --token "glrt-JXwl8VQzLtLcUm32plHIGG86MQpwOjEKdDozCnU6MQ8.01.17127sepk" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-extra-hosts "gitlab.local:192.168.1.74" \\n  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \\n  --description "remote-runner"
+  912  2026-04-16 10:01  docker exec -it gitlab-runner-remote sh -c "echo '192.168.1.74 gitlab.local' >> /etc/hosts"
+  913  2026-04-16 10:01  docker exec -it gitlab-runner-remote gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab.local:8080" \\n  --token "glrt-JXwl8VQzLtLcUm32plHIGG86MQpwOjEKdDozCnU6MQ8.01.17127sepk" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-extra-hosts "gitlab.local:192.168.1.74" \\n  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \\n  --description "remote-runner"
+  914  2026-04-16 10:01  docker exec -it gitlab-runner-remote sh -c "sed -i '/url = \"http:\/\/gitlab.local:8080\"/a\  clone_url = \"http://gitlab.local:8080\"' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner-remote
+  915  2026-04-16 10:01  docker exec gitlab-runner-remote cat /etc/gitlab-runner/config.toml\n
+  916  2026-04-16 10:01  docker context use colima
+  917  2026-04-16 10:01  cd pipeline
+  918  2026-04-16 10:01  cd ~/gitlab-tp/pipeline\ncat > .gitlab-ci.yml << 'EOF'\nstages:\n  - build_dev\n  - build_prod\n  - deploy\n\nvariables:\n  DOCKER_HOST: unix:///var/run/docker.sock\n\nbuild_dev:\n  stage: build_dev\n  image: docker:latest\n  script:\n    - echo "=== BUILD DEV ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:dev -f Dockerfile.dev .\n    - docker push $CI_REGISTRY_IMAGE:dev\n    - echo "Image dev pushed!"\n    - docker images $CI_REGISTRY_IMAGE:dev --format "{{.Size}}"\n  tags:\n    - docker\n\nbuild_prod:\n  stage: build_prod\n  image: docker:latest\n  script:\n    - echo "=== BUILD PROD ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker build -t $CI_REGISTRY_IMAGE:prod -f Dockerfile.preprod .\n    - docker push $CI_REGISTRY_IMAGE:prod\n    - echo "Image prod pushed!"\n    - docker images $CI_REGISTRY_IMAGE:prod --format "{{.Size}}"\n  tags:\n    - docker\n\ndeploy:\n  stage: deploy\n  image: docker:latest\n  environment:\n    name: production\n  script:\n    - echo "=== DEPLOY TO REMOTE SERVER ==="\n    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY\n    - docker pull $CI_REGISTRY_IMAGE:prod\n    - docker stop django-app || true\n    - docker rm django-app || true\n    - docker run -d --name django-app -p 8000:8000\n      -e DB_ENGINE=django.db.backends.sqlite3\n      -e DB_NAME=/app/db.sqlite3\n      -e DB_HOST= -e DB_USER= -e DB_PASSWORD=\n      -e SECRET_KEY=super-secret-key\n      -e ALLOWED_HOSTS=*\n      $CI_REGISTRY_IMAGE:prod\n    - echo "App deployed on remote server!"\n  tags:\n    - remote\n  only:\n    - main\n    - master\nEOF
+  919  2026-04-16 10:01  ls Dockerfile.*
+  920  2026-04-16 10:01  git add .\ngit commit -m "Deploy to remote server via pipeline"\ngit push origin main
+  921  2026-04-16 10:01  ls Dockerfile.*\ngit status
+  922  2026-04-16 10:01  ls
+  923  2026-04-16 10:01  # Dockerfile.dev = version basique\ncp Dockerfile.preprod Dockerfile.dev\n\n# Renommer Dockerfile.prod en Dockerfile.preprod (optimisé)\nmv Dockerfile.prod Dockerfile.preprod
+  924  2026-04-16 10:01  ls Dockerfile.*
+  925  2026-04-16 10:01  git add .\ngit commit -m "Fix: add Dockerfile.dev and rename Dockerfile.prod"\ngit push origin main
+  926  2026-04-16 10:01  colima ssh -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "localhost:5050"],\n  "dns": ["8.8.8.8"]\n}\nEOF'\ncolima ssh -- sudo systemctl restart docker
+  927  2026-04-16 10:01  docker ps --format '{{.Names}}\t{{.Status}}'
+  928  2026-04-16 10:01  git commit --allow-empty -m "Retry after insecure registry fix"\ngit push origin main
+  929  2026-04-16 10:01  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/
+  930  2026-04-16 10:01  git push origin main
+  931  2026-04-16 10:01  docker context use colima-remote-server\ndocker ps --format '{{.Names}}\t{{.Status}}'
+  932  2026-04-16 10:01  docker exec gitlab-runner-remote cat /etc/gitlab-runner/config.toml
+  933  2026-04-16 10:01  docker exec -it gitlab-runner-remote sh -c "sed -i '/executor = \"docker\"/a\  tag_list = [\"remote\"]' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner-remote
+  934  2026-04-16 10:01  docker exec gitlab-runner-remote grep tag_list /etc/gitlab-runner/config.toml
+  935  2026-04-16 10:01  docker context use colima
+  936  2026-04-16 10:01  docker context use colima-remote-server\ndocker exec gitlab-runner-remote cat /etc/gitlab-runner/config.toml
+  937  2026-04-16 10:01  docker exec -it gitlab-runner-remote sh -c "sed -i 's/tag_list = \[\"remote\"\]/tags = [\"remote\"]/' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner-remote
+  938  2026-04-16 10:01  docker logs gitlab-runner-remote --tail 20
+  939  2026-04-16 10:01  docker exec -it gitlab-runner-remote sh -c "echo '192.168.1.74 gitlab.local' >> /etc/hosts"
+  940  2026-04-16 10:01  docker exec gitlab-runner-remote curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/
+  941  2026-04-16 10:01  docker logs -f gitlab-runner-remote --tail 5
+  942  2026-04-16 10:01  docker rm -f gitlab-runner-remote\n\ndocker run -d \\n  --name gitlab-runner-remote \\n  --restart unless-stopped \\n  --add-host gitlab.local:192.168.1.74 \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  -v gitlab_runner_remote_config:/etc/gitlab-runner \\n  gitlab/gitlab-runner:alpine
+  943  2026-04-16 10:01  docker exec gitlab-runner-remote curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\ndocker logs -f gitlab-runner-remote --tail 5
+  944  2026-04-16 10:01  docker exec gitlab-runner-remote curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\ndocker logs -f gitlab-runner-remote --tail 5
+  945  2026-04-16 10:01  docker context use colima
+  946  2026-04-16 10:01  docker context use colima-remote-server\ndocker ps --format '{{.Names}}\t{{.Status}}\t{{.Ports}}'
+  947  2026-04-16 10:01  docker context use colima
+  948  2026-04-16 10:01  # L'app est déployée sur la VM remote, accessible via son IP\ncurl http://192.168.64.2:8000/
+  949  2026-04-16 10:01  curl http://192.168.64.2:8000/\n
+  950  2026-04-16 10:01  colima list
+  951  2026-04-16 10:01  docker context use colima-remote-server\ndocker exec gitlab-runner-remote cat /etc/gitlab-runner/config.toml
+  952  2026-04-16 10:01  use contexte colima
+  953  2026-04-16 10:01  docker use contexte colima
+  954  2026-04-16 10:01  docker context use colima\n
+  955  2026-04-16 10:01  docker context use colima
+  956  2026-04-16 10:01  colima list
+  957  2026-04-16 10:01  colima stop remote-server
+  958  2026-04-16 10:01  colima stop default
+  959  2026-04-16 10:03  colima list
+  960  2026-04-16 10:25  colima start
+  961  2026-04-16 10:26  docker context use colima\n
+  962  2026-04-16 10:26  # Arrêter et supprimer tous les conteneurs\ndocker ps -aq | xargs docker rm -f 2>/dev/null || true\n\n# Supprimer toutes les images\ndocker images -q | xargs docker rmi -f 2>/dev/null || true\n\n# Supprimer tous les volumes\ndocker volume ls -q | xargs docker volume rm -f 2>/dev/null || true\n\n# Supprimer tous les networks custom\ndocker network prune -f\n\n# Nettoyer tout le reste\ndocker system prune -af --volumes
+  963  2026-04-16 10:26  docker images
+  964  2026-04-16 10:26  colima start --profile remote-server\n\ndocker context use colima-remote-server\n\ndocker ps -aq | xargs docker rm -f 2>/dev/null || true\ndocker images -q | xargs docker rmi -f 2>/dev/null || true\ndocker volume ls -q | xargs docker volume rm -f 2>/dev/null || true\ndocker network prune -f\ndocker system prune -af --volumes
+  965  2026-04-16 10:26  docker context use colima
+  966  2026-04-16 10:26  docker ps -a
+  967  2026-04-16 10:27  docker volume ls
+  968  2026-04-16 10:27  docker context use colima-remote-server\ndocker ps -a\ndocker images\ndocker volume ls
+  969  2026-04-16 10:27  docker context use colima\n
+  970  2026-04-16 10:27  mkdir projet-devops-rjrst\ncd projet-devops-rjrst
+  971  2026-04-16 10:28  git init
+  972  2026-04-16 10:29  git branch -M main
+  973  2026-04-16 10:29  git remote add origin https://github.com/Ratebah20/TP_DevOps.git
+  974  2026-04-16 10:29  echo "# Projet DevOps GitLab CI/CD - Groupe RJRST" > README.md\ngit add .\ngit commit -m "Initial commit - Project setup"\ngit push -u origin main
+  975  2026-04-16 10:31  mkdir gitlab-infra\ncd gitlab-infra
+  976  2026-04-16 10:31  cat > docker-compose.yml << 'EOF'\nversion: '3.8'\n\nservices:\n  gitlab-ce:\n    image: gitlab/gitlab-ce:latest\n    container_name: gitlab-ce-rjrst-15-04-2026\n    hostname: gitlab.local\n    restart: unless-stopped\n    networks:\n      default:\n        aliases:\n          - gitlab.local\n    environment:\n      GITLAB_OMNIBUS_CONFIG: |\n        external_url 'http://gitlab.local:8080'\n        nginx['listen_port'] = 80\n        nginx['listen_https'] = false\n        gitlab_rails['gitlab_port'] = 8080\n        registry_external_url 'http://gitlab.local:5050'\n        registry_nginx['listen_https'] = false\n        gitlab_rails['registry_enabled'] = true\n        registry_nginx['listen_port'] = 5050\n        puma['worker_processes'] = 2\n        sidekiq['concurrency'] = 5\n        prometheus_monitoring['enable'] = false\n    ports:\n      - "8080:80"\n      - "2222:22"\n      - "5050:5050"\n    volumes:\n      - gitlab_config:/etc/gitlab\n      - gitlab_logs:/var/log/gitlab\n      - gitlab_data:/var/opt/gitlab\n\n  gitlab-runner-local:\n    image: gitlab/gitlab-runner:alpine\n    container_name: gitlab-runner-local-rjrst-15-04-2026\n    restart: unless-stopped\n    depends_on:\n      - gitlab-ce\n    volumes:\n      - /var/run/docker.sock:/var/run/docker.sock\n      - gitlab_runner_local_config:/etc/gitlab-runner\n\nnetworks:\n  default:\n    name: network-rjrst-15-04-2026\n\nvolumes:\n  gitlab_config:\n  gitlab_logs:\n  gitlab_data:\n  gitlab_runner_local_config:\nEOF
+  977  2026-04-16 10:32  grep gitlab.local /etc/hosts\n
+  978  2026-04-16 10:32  colima ssh -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "localhost:5050"],\n  "dns": ["8.8.8.8"]\n}\nEOF'\n\ncolima ssh -- sudo sh -c 'echo "127.0.0.1 gitlab.local" >> /etc/hosts'\ncolima ssh -- sudo systemctl restart docker
+  979  2026-04-16 10:32  docker compose up -d\n
+  980  2026-04-16 10:32  docker-compose up -d
+  981  2026-04-16 10:33  docker logs -f gitlab-ce-rjrst-15-04-2026
+  982  2026-04-16 10:34  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  983  2026-04-16 10:34  docker logs -f gitlab-ce-rjrst-15-04-2026
+  984  2026-04-16 10:35  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
+  985  2026-04-16 10:38  history >\nhistory-projet-rjrst-15-04-2026.log

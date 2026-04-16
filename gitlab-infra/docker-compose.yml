@@ -1,0 +1,53 @@
+version: '3.8'
+
+services:
+  gitlab-ce:
+    image: gitlab/gitlab-ce:latest
+    container_name: gitlab-ce-rjrst-15-04-2026
+    hostname: gitlab.local
+    restart: unless-stopped
+    networks:
+      default:
+        aliases:
+          - gitlab.local
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'http://gitlab.local:8080'
+        nginx['listen_port'] = 80
+        nginx['listen_https'] = false
+        gitlab_rails['gitlab_port'] = 8080
+        registry_external_url 'http://gitlab.local:5050'
+        registry_nginx['listen_https'] = false
+        gitlab_rails['registry_enabled'] = true
+        registry_nginx['listen_port'] = 5050
+        puma['worker_processes'] = 2
+        sidekiq['concurrency'] = 5
+        prometheus_monitoring['enable'] = false
+    ports:
+      - "8080:80"
+      - "2222:22"
+      - "5050:5050"
+    volumes:
+      - gitlab_config:/etc/gitlab
+      - gitlab_logs:/var/log/gitlab
+      - gitlab_data:/var/opt/gitlab
+
+  gitlab-runner-local:
+    image: gitlab/gitlab-runner:alpine
+    container_name: gitlab-runner-local-rjrst-15-04-2026
+    restart: unless-stopped
+    depends_on:
+      - gitlab-ce
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - gitlab_runner_local_config:/etc/gitlab-runner
+
+networks:
+  default:
+    name: network-rjrst-15-04-2026
+
+volumes:
+  gitlab_config:
+  gitlab_logs:
+  gitlab_data:
+  gitlab_runner_local_config:
