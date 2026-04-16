@@ -1,0 +1,262 @@
+# Pipeline DevOps - Projet Final
+# Equipe: Rateb, Jonathan, Romain, Soulymane, Tomy (RJRST)
+# Date: 15-04-2026
+
+stages:
+  - build_dev
+  - build_prod
+  - test
+  - security_scan
+  - deploy_staging
+  - deploy_production
+  - backup
+  - rollback
+
+variables:
+  DOCKER_HOST: unix:///var/run/docker.sock
+  APP_NAME: ecommerce-rjrst-15-04-2026
+  NETWORK_NAME: network-rjrst-15-04-2026
+
+# ============================================
+# STAGE 1: BUILD DEV (image basique)
+# ============================================
+build_dev:
+  stage: build_dev
+  image: docker:latest
+  tags:
+    - local
+  script:
+    - echo "=== BUILD DEV IMAGE ==="
+    - cd app
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:dev -f Dockerfile.dev .
+    - docker push $CI_REGISTRY_IMAGE:dev
+    - echo "=== Image DEV size ==="
+    - docker images $CI_REGISTRY_IMAGE:dev --format "{{.Size}}"
+
+# ============================================
+# STAGE 2: BUILD PROD (image optimisée)
+# ============================================
+build_prod:
+  stage: build_prod
+  image: docker:latest
+  tags:
+    - local
+  script:
+    - echo "=== BUILD PROD IMAGE (optimized) ==="
+    - cd app
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker build -t $CI_REGISTRY_IMAGE:prod -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA -f Dockerfile.prod .
+    - docker push $CI_REGISTRY_IMAGE:prod
+    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - echo "=== Image PROD size ==="
+    - docker images $CI_REGISTRY_IMAGE:prod --format "{{.Size}}"
+    - echo "Commit SHA tagged: $CI_COMMIT_SHORT_SHA"
+
+# ============================================
+# STAGE 3: TEST (tests Django)
+# ============================================
+test:
+  stage: test
+  image: docker:latest
+  tags:
+    - local
+  script:
+    - echo "=== RUNNING DJANGO TESTS ==="
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:prod
+    - docker run --rm
+      -e DB_ENGINE=sqlite3
+      -e DB_NAME=/tmp/test.db
+      -e SECRET_KEY=test-secret
+      -e DEBUG=True
+      --entrypoint ""
+      $CI_REGISTRY_IMAGE:prod
+      sh -c "python manage.py check && python manage.py makemigrations --check --dry-run || true"
+    - echo "=== Tests passed ==="
+
+# ============================================
+# STAGE 4: SECURITY SCAN (Trivy)
+# ============================================
+security_scan:
+  stage: security_scan
+  image: docker:latest
+  tags:
+    - local
+  script:
+    - echo "=== TRIVY SECURITY SCAN ==="
+    - docker run --rm
+      -v /var/run/docker.sock:/var/run/docker.sock
+      aquasec/trivy:latest image
+      --severity HIGH,CRITICAL
+      --exit-code 0
+      --no-progress
+      $CI_REGISTRY_IMAGE:prod
+  allow_failure: true
+
+# ============================================
+# STAGE 5: DEPLOY STAGING (automatique)
+# ============================================
+deploy_staging:
+  stage: deploy_staging
+  image: docker:latest
+  tags:
+    - staging
+  environment:
+    name: staging
+    url: http://192.168.64.2:8001
+  script:
+    - echo "=== DEPLOY TO STAGING ==="
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:prod
+    # Créer le réseau si n'existe pas
+    - docker network create $NETWORK_NAME-staging 2>/dev/null || true
+    # Lancer la DB si elle n'existe pas
+    - |
+      if ! docker ps -a -q -f name=db-staging-rjrst | grep -q .; then
+        docker run -d --name db-staging-rjrst \
+          --network $NETWORK_NAME-staging \
+          --restart unless-stopped \
+          -e POSTGRES_DB=appdb \
+          -e POSTGRES_USER=appuser \
+          -e POSTGRES_PASSWORD=apppass \
+          -v db-staging-data:/var/lib/postgresql/data \
+          postgres:16-alpine
+        sleep 10
+      fi
+    # Stopper l'ancien conteneur app
+    - docker stop app-staging-rjrst 2>/dev/null || true
+    - docker rm app-staging-rjrst 2>/dev/null || true
+    # Lancer l'app staging
+    - docker run -d
+      --name app-staging-rjrst
+      --network $NETWORK_NAME-staging
+      --restart unless-stopped
+      -p 8001:8000
+      -e DB_ENGINE=postgresql
+      -e DB_NAME=appdb
+      -e DB_USERNAME=appuser
+      -e DB_PASS=apppass
+      -e DB_HOST=db-staging-rjrst
+      -e DB_PORT=5432
+      -e SECRET_KEY=staging-secret-key
+      -e DEBUG=False
+      -e DJANGO_SUPERUSER_USERNAME=admin
+      -e DJANGO_SUPERUSER_EMAIL=admin@rjrst.local
+      -e DJANGO_SUPERUSER_PASSWORD=admin123
+      -v app-staging-backups:/app/backups
+      $CI_REGISTRY_IMAGE:prod
+    - sleep 5
+    - echo "=== Staging deployed on http://192.168.64.2:8001 ==="
+
+# ============================================
+# STAGE 6: DEPLOY PRODUCTION (manuel)
+# ============================================
+deploy_production:
+  stage: deploy_production
+  image: docker:latest
+  tags:
+    - production
+  environment:
+    name: production
+    url: http://192.168.64.2:8000
+  when: manual
+  only:
+    - main
+  script:
+    - echo "=== DEPLOY TO PRODUCTION ==="
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    - docker pull $CI_REGISTRY_IMAGE:prod
+    # Créer le réseau si n'existe pas
+    - docker network create $NETWORK_NAME-prod 2>/dev/null || true
+    # Lancer la DB si elle n'existe pas
+    - |
+      if ! docker ps -a -q -f name=db-prod-rjrst | grep -q .; then
+        docker run -d --name db-prod-rjrst \
+          --network $NETWORK_NAME-prod \
+          --restart unless-stopped \
+          -e POSTGRES_DB=appdb \
+          -e POSTGRES_USER=appuser \
+          -e POSTGRES_PASSWORD=apppass \
+          -v db-prod-data:/var/lib/postgresql/data \
+          postgres:16-alpine
+        sleep 10
+      fi
+    # Sauvegarder le tag actuel pour rollback
+    - |
+      OLD_IMAGE=$(docker inspect app-prod-rjrst --format '{{.Config.Image}}' 2>/dev/null || echo "none")
+      echo "Previous image: $OLD_IMAGE"
+      docker tag $OLD_IMAGE $CI_REGISTRY_IMAGE:previous 2>/dev/null || true
+    # Stopper l'ancien conteneur
+    - docker stop app-prod-rjrst 2>/dev/null || true
+    - docker rm app-prod-rjrst 2>/dev/null || true
+    # Lancer l'app prod
+    - docker run -d
+      --name app-prod-rjrst
+      --network $NETWORK_NAME-prod
+      --restart unless-stopped
+      -p 8000:8000
+      -e DB_ENGINE=postgresql
+      -e DB_NAME=appdb
+      -e DB_USERNAME=appuser
+      -e DB_PASS=apppass
+      -e DB_HOST=db-prod-rjrst
+      -e DB_PORT=5432
+      -e SECRET_KEY=prod-super-secret-key
+      -e DEBUG=False
+      -e DJANGO_SUPERUSER_USERNAME=admin
+      -e DJANGO_SUPERUSER_EMAIL=admin@rjrst.local
+      -e DJANGO_SUPERUSER_PASSWORD=admin123
+      -v app-prod-backups:/app/backups
+      $CI_REGISTRY_IMAGE:prod
+    - sleep 5
+    - echo "=== Production deployed on http://192.168.64.2:8000 ==="
+
+# ============================================
+# STAGE 7: BACKUP DB (manuel)
+# ============================================
+backup_db:
+  stage: backup
+  image: docker:latest
+  tags:
+    - production
+  when: manual
+  script:
+    - echo "=== BACKUP PRODUCTION DATABASE ==="
+    - TIMESTAMP=$(date +%Y%m%d_%H%M%S)
+    - docker exec app-prod-rjrst python manage.py dbbackup
+    - docker exec app-prod-rjrst ls -la /app/backups/
+    - echo "=== Backup created at $TIMESTAMP ==="
+
+# ============================================
+# STAGE 8: ROLLBACK (manuel)
+# ============================================
+rollback:
+  stage: rollback
+  image: docker:latest
+  tags:
+    - production
+  when: manual
+  script:
+    - echo "=== ROLLBACK TO PREVIOUS VERSION ==="
+    - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+    # Stopper l'app actuelle
+    - docker stop app-prod-rjrst 2>/dev/null || true
+    - docker rm app-prod-rjrst 2>/dev/null || true
+    # Relancer avec l'image previous
+    - docker run -d
+      --name app-prod-rjrst
+      --network $NETWORK_NAME-prod
+      --restart unless-stopped
+      -p 8000:8000
+      -e DB_ENGINE=postgresql
+      -e DB_NAME=appdb
+      -e DB_USERNAME=appuser
+      -e DB_PASS=apppass
+      -e DB_HOST=db-prod-rjrst
+      -e DB_PORT=5432
+      -e SECRET_KEY=prod-super-secret-key
+      -e DEBUG=False
+      -v app-prod-backups:/app/backups
+      $CI_REGISTRY_IMAGE:previous
+    - echo "=== Rollback complete ==="

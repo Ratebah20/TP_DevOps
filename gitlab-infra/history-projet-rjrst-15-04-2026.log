@@ -983,3 +983,56 @@
   983  2026-04-16 10:34  docker logs -f gitlab-ce-rjrst-15-04-2026
   984  2026-04-16 10:35  curl -s -o /dev/null -w "%{http_code}" http://localhost:8080/\n
   985  2026-04-16 10:38  history >\nhistory-projet-rjrst-15-04-2026.log
+  986  2026-04-16 10:38  history -i 1 > history-projet-rjrst-15-04-2026.log
+  987  2026-04-16 10:40  docker exec gitlab-ce-rjrst-15-04-2026 cat /etc/gitlab/initial_root_password\n
+  988  2026-04-16 10:42  ipconfig getifaddr en0
+  989  2026-04-16 10:50  docker exec -it gitlab-ce-rjrst-15-04-2026 gitlab-rake "gitlab:password:reset[root]"\n
+  990  2026-04-16 10:51  docker exec -it gitlab-runner-local-rjrst-15-04-2026 gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab-ce:80" \\n  --token "glrt-l_lCWxQlPX5eM0S3Vz29um86MQpwOjEKdDozCnU6MQ8.01.170m8mmud" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-network-mode "network-rjrst-15-04-2026" \\n  --description "runner-local-rjrst"
+  991  2026-04-16 10:51  GITLAB_IP=$(docker inspect gitlab-ce-rjrst-15-04-2026 --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}')\necho "GitLab IP: $GITLAB_IP"
+  992  2026-04-16 10:52  docker exec -it gitlab-runner-local-rjrst-15-04-2026 sh -c "sed -i '/url = \"http:\/\/gitlab-ce:80\"/a\  clone_url = \"http://gitlab-ce:80\"' /etc/gitlab-runner/config.toml"\n\ndocker exec -it gitlab-runner-local-rjrst-15-04-2026 sh -c "sed -i 's|privileged = false|privileged = true|' /etc/gitlab-runner/config.toml"\n\ndocker exec -it gitlab-runner-local-rjrst-15-04-2026 sh -c "sed -i 's|volumes = \[\"/cache\"\]|volumes = [\"/cache\", \"/var/run/docker.sock:/var/run/docker.sock\"]|' /etc/gitlab-runner/config.toml"\n\ndocker exec -it gitlab-runner-local-rjrst-15-04-2026 sh -c "sed -i '/network_mtu = 0/a\    extra_hosts = [\"gitlab.local:$GITLAB_IP\"]' /etc/gitlab-runner/config.toml"\n\ndocker restart gitlab-runner-local-rjrst-15-04-2026
+  993  2026-04-16 10:52  docker exec gitlab-runner-local-rjrst-15-04-2026 cat /etc/gitlab-runner/config.toml
+  994  2026-04-16 10:53  docker context use colima-remote-server\n
+  995  2026-04-16 10:53  ipconfig getifaddr en0
+  996  2026-04-16 10:53  colima ssh --profile remote-server -- sudo sh -c 'cat > /etc/docker/daemon.json << EOF\n{\n  "insecure-registries": ["gitlab.local:5050", "192.168.1.74:5050"]\n}\nEOF'\n\ncolima ssh --profile remote-server -- sudo sh -c 'echo "192.168.1.74 gitlab.local" >> /etc/hosts'\ncolima ssh --profile remote-server -- sudo systemctl restart docker
+  997  2026-04-16 10:53  colima ssh --profile remote-server -- curl -s -o /dev/null -w "%{http_code}" http://gitlab.local:8080/\n
+  998  2026-04-16 10:55  docker run -d \\n  --name gitlab-runner-staging-rjrst-15-04-2026 \\n  --restart unless-stopped \\n  --add-host gitlab.local:192.168.1.74 \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  -v gitlab_runner_staging_config:/etc/gitlab-runner \\n  gitlab/gitlab-runner:alpine\n\ndocker run -d \\n  --name gitlab-runner-prod-rjrst-15-04-2026 \\n  --restart unless-stopped \\n  --add-host gitlab.local:192.168.1.74 \\n  -v /var/run/docker.sock:/var/run/docker.sock \\n  -v gitlab_runner_prod_config:/etc/gitlab-runner \\n  gitlab/gitlab-runner:alpine
+  999  2026-04-16 10:55  docker ps --format '{{.Names}}\t{{.Status}}'\n
+ 1000  2026-04-16 10:57  docker exec -it gitlab-runner-staging-rjrst-15-04-2026 gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab.local:8080" \\n  --token "glrt-wWMf9xufyw85Y014L1FBcW86MQpwOjEKdDozCnU6MQ8.01.1717yjk22" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-extra-hosts "gitlab.local:192.168.1.74" \\n  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \\n  --description "runner-staging-rjrst"
+ 1001  2026-04-16 10:57  docker exec -it gitlab-runner-prod-rjrst-15-04-2026 gitlab-runner register \\n  --non-interactive \\n  --url "http://gitlab.local:8080" \\n  --token "glrt-AAecUE7JJx9atj7EUnBxNW86MQpwOjEKdDozCnU6MQ8.01.170cjjglc" \\n  --executor "docker" \\n  --docker-image "docker:latest" \\n  --docker-extra-hosts "gitlab.local:192.168.1.74" \\n  --docker-volumes "/var/run/docker.sock:/var/run/docker.sock" \\n  --description "runner-prod-rjrst"
+ 1002  2026-04-16 10:58  # Staging\ndocker exec -it gitlab-runner-staging-rjrst-15-04-2026 sh -c "sed -i '/url = \"http:\/\/gitlab.local:8080\"/a\  clone_url = \"http://gitlab.local:8080\"' /etc/gitlab-runner/config.toml"\ndocker exec -it gitlab-runner-staging-rjrst-15-04-2026 sh -c "sed -i '/executor = \"docker\"/a\  tags = [\"staging\"]' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner-staging-rjrst-15-04-2026\n\n# Prod\ndocker exec -it gitlab-runner-prod-rjrst-15-04-2026 sh -c "sed -i '/url = \"http:\/\/gitlab.local:8080\"/a\  clone_url = \"http://gitlab.local:8080\"' /etc/gitlab-runner/config.toml"\ndocker exec -it gitlab-runner-prod-rjrst-15-04-2026 sh -c "sed -i '/executor = \"docker\"/a\  tags = [\"production\"]' /etc/gitlab-runner/config.toml"\ndocker restart gitlab-runner-prod-rjrst-15-04-2026
+ 1003  2026-04-16 10:58  docker exec -it gitlab-runner-staging-rjrst-15-04-2026 sh -c "sed -i '/url = \"http:\/\/gitlab.local:8080\"/a\  clone_url = \"http://gitlab.local:8080\"' /etc/gitlab-runner/config.toml"\n
+ 1004  2026-04-16 10:58  docker exec -it gitlab-runner-staging-rjrst-15-04-2026 sh -c "sed -i '/executor = \"docker\"/a\  tags = [\"staging\"]' /etc/gitlab-runner/config.toml"\n
+ 1005  2026-04-16 10:58  docker restart gitlab-runner-staging-rjrst-15-04-2026\n
+ 1006  2026-04-16 10:58  docker exec -it gitlab-runner-prod-rjrst-15-04-2026 sh -c "sed -i '/url = \"http:\/\/gitlab.local:8080\"/a\  clone_url = \"http://gitlab.local:8080\"' /etc/gitlab-runner/config.toml"\n
+ 1007  2026-04-16 10:59  docker exec -it gitlab-runner-prod-rjrst-15-04-2026 sh -c "sed -i '/executor = \"docker\"/a\  tags = [\"production\"]' /etc/gitlab-runner/config.toml"\n
+ 1008  2026-04-16 10:59  docker restart gitlab-runner-prod-rjrst-15-04-2026\n
+ 1009  2026-04-16 10:59  docker context use colima\n
+ 1010  2026-04-16 11:00  git clone https://github.com/app-generator/django-volt-dashboard.git app\ncd app
+ 1011  2026-04-16 11:00  rm -rf .git
+ 1012  2026-04-16 11:00  ls -la\ncat requirements.txt 2>/dev/null || echo "Pas de requirements.txt"
+ 1013  2026-04-16 11:02  rm db.sqlite3\nrm Dockerfile\nrm docker-compose.yml\nrm render.yaml\nrm -rf nginx\nrm -rf cli\nrm build.sh\nrm .env
+ 1014  2026-04-16 11:02  cat > requirements.txt << 'EOF'\n# Core\ndjango==4.2.9\npython-dotenv==1.0.1\nstr2bool==1.1\n\n# UI & Admin UI\ndjango-jazzmin==3.0.1\ndjango-admin-volt==1.0.17\n\n# Tools\ndjangorestframework==3.15.2\nrequests==2.32.3\n\n# Deployment\nwhitenoise==6.7.0\ngunicorn==23.0.0\n\n# DB\npsycopg2-binary==2.9.9\ndjango-dbbackup==4.2.1\nEOF
+ 1015  2026-04-16 11:02  cat config/settings.py\n
+ 1016  2026-04-16 11:04  cd ~/projet-devops-rjrst/app\n\n# Backup du fichier original\ncp config/settings.py config/settings.py.bak
+ 1017  2026-04-16 11:04  cp config/settings.py config/settings.py.bak\n
+ 1018  2026-04-16 11:04  sed -i '' "s|'rest_framework.authtoken',  # Include DRF Auth      # <-- NEW|'rest_framework.authtoken',\n    'dbbackup',|" config/settings.py\n
+ 1019  2026-04-16 11:04  cat >> config/settings.py << 'EOF'\n\n# Backup config (django-dbbackup)\nDBBACKUP_STORAGE = 'django.core.files.storage.FileSystemStorage'\nDBBACKUP_STORAGE_OPTIONS = {'location': '/app/backups/'}\nEOF
+ 1020  2026-04-16 11:05  cat > entrypoint.sh << 'EOF'\n#!/bin/sh\n\n# Attendre que la DB soit prête si PostgreSQL\nif [ "$DB_ENGINE" = "postgresql" ] && [ -n "$DB_HOST" ]; then\n  echo "Waiting for database at $DB_HOST:${DB_PORT:-5432}..."\n  while ! python -c "\nimport socket, sys, os\ntry:\n    socket.create_connection((os.environ['DB_HOST'], int(os.environ.get('DB_PORT', 5432))), timeout=2)\n    sys.exit(0)\nexcept Exception:\n    sys.exit(1)\n" 2>/dev/null; do\n    echo "DB not ready, retrying in 2s..."\n    sleep 2\n  done\n  echo "Database is ready!"\nfi\n\n# Appliquer les migrations\necho "Running migrations..."\npython manage.py migrate --noinput\n\n# Collecter les static files (pour whitenoise)\necho "Collecting static files..."\npython manage.py collectstatic --noinput\n\n# Créer le superuser admin si les variables sont définies\nif [ -n "$DJANGO_SUPERUSER_USERNAME" ] && [ -n "$DJANGO_SUPERUSER_PASSWORD" ]; then\n  echo "Creating superuser if not exists..."\n  python manage.py createsuperuser --noinput --username "$DJANGO_SUPERUSER_USERNAME" --email "$DJANGO_SUPERUSER_EMAIL" 2>/dev/null || echo "Superuser already exists"\nfi\n\n# Créer le dossier de backup\nmkdir -p /app/backups\n\n# Lancer l'app\nexec "$@"\nEOF\nchmod +x entrypoint.sh
+ 1021  2026-04-16 11:05  ls -la\n
+ 1022  2026-04-16 11:05  cat > Dockerfile.dev << 'EOF'\nFROM python:3.12\n\nWORKDIR /app\n\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\n\nCOPY . .\nRUN chmod +x entrypoint.sh\n\nEXPOSE 8000\n\nENTRYPOINT ["./entrypoint.sh"]\nCMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]\nEOF
+ 1023  2026-04-16 11:05  cat > Dockerfile.prod << 'EOF'\n# --- Stage 1: Builder ---\nFROM python:3.12-alpine AS builder\n\nWORKDIR /app\n\nRUN apk add --no-cache gcc musl-dev libpq-dev postgresql-dev\n\nCOPY requirements.txt .\nRUN pip install --no-cache-dir --prefix=/install -r requirements.txt\n\n# --- Stage 2: Production ---\nFROM python:3.12-alpine\n\nWORKDIR /app\n\nRUN apk add --no-cache libpq postgresql-client\n\nCOPY --from=builder /install /usr/local\nCOPY . .\n\nRUN chmod +x entrypoint.sh\nRUN mkdir -p /app/backups /app/staticfiles && chmod -R 755 /app\n\nEXPOSE 8000\n\nRUN adduser -D appuser && chown -R appuser:appuser /app\nUSER appuser\n\nENTRYPOINT ["./entrypoint.sh"]\nCMD ["gunicorn", "--config", "gunicorn-cfg.py", "config.wsgi:application"]\nEOF
+ 1024  2026-04-16 11:06  cat gunicorn-cfg.py\n
+ 1025  2026-04-16 11:06  cd ..
+ 1026  2026-04-16 11:06  ls
+ 1027  2026-04-16 11:06  git add .
+ 1028  2026-04-16 11:07  git commit -m "pull de l'image de l'app, config de dockerfile de dev et prod, docker compose de gitlab avant de config pipeline"
+ 1029  2026-04-16 11:07  git push origin main
+ 1030  2026-04-16 11:08  cat gunicorn-cfg.py
+ 1031  2026-04-16 11:08  cd app
+ 1032  2026-04-16 11:08  cat gunicorn-cfg.py
+ 1033  2026-04-16 11:08  cat > gunicorn-cfg.py << 'EOF'\nbind = '0.0.0.0:8000'\nworkers = 2\naccesslog = '-'\nloglevel = 'info'\ncapture_output = True\nenable_stdio_inheritance = True\nEOF
+ 1034  2026-04-16 11:09  cat > .dockerignore << 'EOF'\n.git\n.gitignore\n__pycache__\n*.pyc\n*.pyo\n.env\ndb.sqlite3\n*.md\nnode_modules\n.vscode\n.idea\n.DS_Store\nbackups/\nstaticfiles/\nEOF
+ 1035  2026-04-16 11:09  docker build -t test-dev -f Dockerfile.dev .\n
+ 1036  2026-04-16 11:10  docker build -t test-prod -f Dockerfile.prod .\n
+ 1037  2026-04-16 11:10  docker images | grep -E "test-dev|test-prod"\n
+ 1038  2026-04-16 11:11  docker rmi test-dev test-prod
