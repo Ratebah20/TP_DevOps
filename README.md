@@ -50,6 +50,20 @@ Livrer une chaîne CI/CD complète et fonctionnelle démontrant :
 - Backup et rollback à la demande
 - Application accessible depuis l'extérieur du serveur
 
+### 1.4 Répartition des tâches
+
+Le projet a été réalisé en groupe de cinq. Les responsabilités ont été réparties selon les composants de l'architecture et les compétences de chacun, avec des points de synchronisation réguliers pour garantir la cohérence globale.
+
+| Membre | Responsabilités principales |
+|---|---|
+| **Rateb** | Architecture globale, mise en place de l'infrastructure GitLab CE et des trois runners, configuration des deux VMs Colima (default et remote-server), rédaction du `.gitlab-ci.yml` et orchestration du pipeline complet, rédaction du rapport |
+| **Jonathan** | Sécurité — configuration du compte utilisateur non-admin, gestion des clés SSH, intégration de Trivy dans le pipeline, analyse des CVE détectées et mise à jour des dépendances pour les corriger |
+| **Romain** | Containerisation — rédaction et optimisation des deux Dockerfiles (`Dockerfile.dev` et `Dockerfile.prod`), comparaison des tailles d'images, mise en place du multi-stage build Alpine, configuration du Container Registry GitLab |
+| **Soulymane** | Application Django — adaptation de `django-volt-dashboard`, configuration du `settings.py` pour PostgreSQL via variables d'environnement, intégration de `django-dbbackup`, écriture de l'`entrypoint.sh` pour l'initialisation automatique |
+| **Tomy** | Stratégie de déploiement et fiabilité — mise en place des environnements staging et production, logique de rollback via tag `:previous`, stage de backup, tests de bout en bout du cycle deploy → backup → rollback |
+
+Chaque membre a également contribué à la rédaction de la documentation de sa partie et à la relecture croisée du rapport final. Les points bloquants (YAML invalide, erreurs de `config.toml`, dépendances manquantes) ont été résolus collectivement, ce qui a renforcé la maîtrise de la chaîne CI/CD par l'ensemble du groupe.
+
 ---
 
 ## 2. Solutions choisies
